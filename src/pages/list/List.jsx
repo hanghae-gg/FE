@@ -46,7 +46,7 @@ const Index = () => {
 
   return (
     <StContent>
-      <div>
+      <StTopbtn>
         <Header>
           <Btn
             onClick={() => {
@@ -58,13 +58,13 @@ const Index = () => {
           </Btn>
           <Btn
             onClick={() => {
-              navigate("/Add");
+              navigate("/Write");
             }}
           >
             게시글 작성하기
           </Btn>
         </Header>
-      </div>
+      </StTopbtn>
       <Listt>
         {lists?.map((list) => {
           return (
@@ -196,5 +196,7 @@ const StImage = styled.img`
 
 const StContent = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
+const StTopbtn = styled.div``;
