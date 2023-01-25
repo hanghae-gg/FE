@@ -67,7 +67,7 @@ const Detail = () => {
                   <h3>{mylist.title}</h3>
                   <br />
                   <StDesc>설명: </StDesc>
-                  {mylist.contet}
+                  {mylist.content}
                   <hr />
                 </StDescDIv>
               </StDecsBox>

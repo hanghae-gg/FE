@@ -75,7 +75,7 @@ const Index = () => {
                   navigate(`/Detail/${list.postId}`);
                 }}
               >
-                <StImage src={list.imageUrl} />
+                <StImage src={list.image} />
               </div>
               <div>
                 <StOneList>

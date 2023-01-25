@@ -22,7 +22,7 @@ const AddCommentForm = () => {
   // };
 
   const submitCommentHandler = (comment) => {
-    axios.post(`${process.env.REACT_APP_CAT}/comments/${id}`, comment, {
+    axios.post(`${process.env.REACT_APP_LIST}/comments/${id}`, comment, {
       headers: {
         Authorization: token,
       },
