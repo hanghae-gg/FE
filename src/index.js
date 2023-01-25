@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import axios from "axios";
 import { Provider } from "react-redux";
+import store from "./redux/config/configStore";
+import GlobalStyles from "./global/GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 
 axios.defaults.withCredentials = true;
@@ -12,6 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <App />
+    <GlobalStyles />
   </Provider>
 );
 

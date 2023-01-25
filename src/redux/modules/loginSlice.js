@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-//import { getCookie } from "../../Cookie";
 import { axiosInstance } from "../../request/request";
-//import { getCookie } from "../../Cookie";
-//import axios from "axios";
 
 axiosInstance.defaults.withCredentials = true;
 const initialState = {
@@ -57,7 +54,7 @@ export const __postLogin = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axiosInstance
-        .post("/users/login", payload, {
+        .post("/userList", payload, {
           withCredentials: true,
         })
 
@@ -80,27 +77,6 @@ export const __postLogin = createAsyncThunk(
     }
   }
 );
-//email전송기능
-/* export const __emailCheck = createAsyncThunk(
-  "emailcheck",
-  async (payload, thunkAPI) => {
-    //console.log(payload);
-    const data1 = {
-      id: 300,
-      email: payload,
-    };
-    try {
-      const { data } = await axios.post(
-        "http://localhost:3001/emailCheck",
-        data1
-      );
-      console.log(payload);
-      return thunkAPI.fulfillWithValue(data);
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  }
-); */
 
 const userList = createSlice({
   name: "userList",
@@ -142,20 +118,6 @@ const userList = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    /*     [__postLogin.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    [__emailCheck.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [__emailCheck.fulfilled]: (state, action) => {
-      state.isLoading = false;
-    },
-    [__emailCheck.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    }, */
   },
 });
 

@@ -1,0 +1,14 @@
+{
+  "userList": [
+    {
+      "id": 1,
+      "username": "json-server",
+      "password": "typicode"
+    },
+    {
+      "username": "sfdsa",
+      "password": "fdsf",
+      "id": 2
+    }
+  ]
+}
