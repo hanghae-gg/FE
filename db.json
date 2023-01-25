@@ -4,30 +4,43 @@
       "id": 1,
       "username": "json-server",
       "password": "typicode"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "json-server",
+      "password": "typicode"
     },
     {
-      "username": "sfdsa",
-      "password": "fdsf",
+      "username": "wldnr1208",
+      "password": "wjdals159*",
+      "check_password": "wjdals159*",
+      "email": "wldnr1208159@naver.com",
       "id": 2
     },
     {
-      "username": "괄호조심",
-      "password": "rhkfghwkfTMwk",
+      "username": "wldnr1208",
+      "password": "wjdals159*",
+      "email": "wldnr1208159@naver.com",
       "id": 3
     },
     {
-      "username": "",
-      "password": "",
+      "username": "wldnr1208",
+      "password": "wjdals159*",
+      "email": "wldnr1208159@naver.com",
       "id": 4
     },
     {
-      "username": "dsafsf",
-      "password": "sdfsf",
+      "username": "wldnr1208",
+      "password": "wjdals159*",
+      "email": "wldnr1208@naver.com",
       "id": 5
     },
     {
-      "username": "dsfsdfsads",
-      "password": "dfasf",
+      "username": "1234",
+      "password": "12341234",
+      "email": "123123@naver.com",
       "id": 6
     },
     {
