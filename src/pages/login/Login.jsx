@@ -9,7 +9,7 @@ const Login = () => {
   const dispatch = useDispatch();
   //초기값
   const initialState = {
-    username: "",
+    userName: "",
     password: "",
   };
 
@@ -27,7 +27,7 @@ const Login = () => {
   //로그인 POST 요청
   const onSubmitLoginHandler = (e) => {
     e.preventDefault();
-    if (user.username.trim() === "" || user.password.trim() === "") {
+    if (user.userName.trim() === "" || user.password.trim() === "") {
       alert("체크피료해");
     }
     dispatch(__postLogin(user));
@@ -73,7 +73,7 @@ const Login = () => {
                 <StId
                   required //아무것도 입력하지 않으면 안되게
                   type="text"
-                  name="username"
+                  name="userName"
                   placeholder="아이디"
                   onChange={onChangeLoginHandler}
                 ></StId>
@@ -333,27 +333,6 @@ const StLoginButton = styled.button`
   background-color: #1ea1f7;
   font-weight: 700;
   cursor: pointer;
-  line-height: 56px;
-  padding: 0 20px;
-`;
-
-const StLoginTrimButton = styled.button`
-  font-size: 16px;
-  border-radius: 3px;
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  border: 0;
-  height: 56px;
-  margin-top: 40px;
-  width: 100%;
-  position: relative;
-  font-weight: 400;
-  line-height: 19px;
-  text-align: center;
-  background-color: #dddfe4;
-  font-weight: 700;
-  cursor: default;
   line-height: 56px;
   padding: 0 20px;
 `;
