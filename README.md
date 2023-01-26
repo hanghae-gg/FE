@@ -41,7 +41,7 @@
 
 ## :hammer: Technology Stack
 
-1. <img src="https://img.shields.io/badge/#61DAFB-3b82f6?style=flat&logo=React&logoColor=white"/>
+1. <img src="https://img.shields.io/badge/React-#61DAFB?style=flat&logo=React&logoColor=white"/>
 2. Redux(toolkit)
 3. Axios
 4. Json-server(목데이터)
