@@ -20,22 +20,22 @@ const Index = () => {
     setLists(data);
   };
 
-  const onClickDeleteLists = async (id) => {
-    const result = window.confirm("삭제하시겠습니까?");
-    if (!token) {
-      alert("로그인을 해주세요");
-    } else {
-      if (result) {
-        await axios.delete(`${process.env.REACT_APP_LIST}/posts/${id}`, {
-          headers: {
-            Authorization: token,
-          },
-        });
-      } else {
-        return;
-      }
-    }
-  };
+  // const onClickDeleteLists = async (id) => {
+  //   const result = window.confirm("삭제하시겠습니까?");
+  //   if (!token) {
+  //     alert("로그인을 해주세요");
+  //   } else {
+  //     if (result) {
+  //       await axios.delete(`${process.env.REACT_APP_LIST}/posts/${id}`, {
+  //         headers: {
+  //           Authorization: token,
+  //         },
+  //       });
+  //     } else {
+  //       return;
+  //     }
+  //   }
+  // };
 
   useEffect(() => {
     fetchList();
@@ -43,9 +43,6 @@ const Index = () => {
 
   return (
     <JK>
-      <StListBackground>
-        <StImg src="https://opgg-static.akamaized.net/logo/20221024143822.5f982558178b4dbf96c34ae9b2706d92.png?image=q_auto,f_webp,w_auto&v=1666684602785" />
-      </StListBackground>
       <StContent>
         <div className="sub-header">
           <div className="sub-header-info">
@@ -61,10 +58,7 @@ const Index = () => {
                   }}
                   className="write-link"
                 >
-                  <img
-                    src="https://talk.op.gg/images/icon-write@2x.png"
-                    alt="글쓰기"
-                  />
+                  <img src="https://talk.op.gg/images/icon-write@2x.png" alt="글쓰기" />
                 </div>
               </li>
             </ul>
@@ -79,10 +73,7 @@ const Index = () => {
               </li>
               <li className="sub-link__item--active">
                 <div>
-                  <img
-                    src="https://talk.op.gg/images/icon-new-on@2x.png"
-                    alt=""
-                  />
+                  <img src="https://talk.op.gg/images/icon-new-on@2x.png" alt="" />
                   <span>최신</span>
                 </div>
               </li>
@@ -97,10 +88,7 @@ const Index = () => {
               </li>
               <li className="sub-link__item">
                 <div>
-                  <img
-                    src="https://talk.op.gg/images/icon-boost@2x.png"
-                    alt=""
-                  />
+                  <img src="https://talk.op.gg/images/icon-boost@2x.png" alt="" />
                   <span>10추</span>
                 </div>
               </li>
@@ -120,10 +108,7 @@ const Index = () => {
                   placeholder="검색"
                 />
                 <button className="sub-header-search__button">
-                  <img
-                    src="https://talk.op.gg/images/icon-search@2x.png"
-                    alt=""
-                  ></img>
+                  <img src="https://talk.op.gg/images/icon-search@2x.png" alt=""></img>
                 </button>
               </form>
             </div>
@@ -153,10 +138,7 @@ const Index = () => {
                             삭제하기
                           </StButton> */}
                         </StTitleDelete>
-                        <StImage
-                          src={list.image}
-                          style={{ width: "20%", height: "20%" }}
-                        />
+                        <StImage src={list.image} style={{ width: "20%", height: "20%" }} />
                       </StOneList>
                     </div>
                   </div>
@@ -219,20 +201,6 @@ const Unit = styled.div`
   color: #000000;
 `;
 
-const StListBackground = styled.div`
-  background-image: "";
-`;
-
-const StImgDiv = styled.div`
-  margin: auto;
-  text-align: center;
-`;
-
-const StImg = styled.img`
-  max-height: 224px;
-  margin: 50px auto;
-`;
-
 const StNotice = styled.div`
   background-color: #fff064;
   text-align: center;
@@ -250,26 +218,6 @@ const StNotice = styled.div`
   }
 `;
 
-const StButton = styled.button`
-  margin: auto;
-  background-color: black;
-  margin-top: 10px;
-  text-align: center;
-  width: 70px;
-  height: 30px;
-  opacity: 0.9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  border: 1px solid black;
-  font-weight: bold;
-  font-size: 10px;
-  color: white;
-  cursor: pointer;
-  /* font-family: "Noto Sans KR", sans-serif; */
-`;
 const StImage = styled.img`
   border-radius: 10px 10px 10px 10px;
   max-width: 200px;
@@ -277,7 +225,7 @@ const StImage = styled.img`
 `;
 
 const StContent = styled.div`
-  margin-top: -40px;
+  margin-top: -400px;
   float: right;
   box-sizing: border-box;
   width: 728px;

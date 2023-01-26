@@ -154,8 +154,8 @@ const Detail = () => {
             </StDetailBox>
           )}
         </StDetailALl>
-        {!isEditMode && <Comments />}
       </JK>
+      {!isEditMode && <Comments />}
     </>
   );
 };
