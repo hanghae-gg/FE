@@ -4,6 +4,11 @@
       "id": 1,
       "username": "json-server",
       "password": "typicode"
+    },
+    {
+      "userName": "",
+      "password": "",
+      "id": 2
     }
   ],
   "user": [
@@ -11,47 +16,6 @@
       "id": 1,
       "username": "json-server",
       "password": "typicode"
-    },
-    {
-      "username": "wldnr1208",
-      "password": "wjdals159*",
-      "check_password": "wjdals159*",
-      "email": "wldnr1208159@naver.com",
-      "id": 2
-    },
-    {
-      "username": "wldnr1208",
-      "password": "wjdals159*",
-      "email": "wldnr1208159@naver.com",
-      "id": 3
-    },
-    {
-      "username": "wldnr1208",
-      "password": "wjdals159*",
-      "email": "wldnr1208159@naver.com",
-      "id": 4
-    },
-    {
-      "username": "wldnr1208",
-      "password": "wjdals159*",
-      "email": "wldnr1208@naver.com",
-      "id": 5
-    },
-    {
-      "username": "1234",
-      "password": "12341234",
-      "email": "123123@naver.com",
-      "id": 6
-    },
-    {
-      "username": "sdfdsfsd",
-      "password": "sdfdsfsdfds",
-      "id": 7
-    },
-    {
-      "username": "qwe",
-      "password": "qwe",
-      "id": 8
     }
   ],
   "posts": [

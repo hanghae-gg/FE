@@ -11,7 +11,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const initialState = {
-    username: "",
+    userName: "",
     email: "",
     password: "",
     check_password: "",
@@ -20,11 +20,8 @@ const SignUp = () => {
   //유저 스테이트 생성
   const [user, setUser] = useState(initialState);
 
-  //남성 여성 스테이트 생성
-  const [gender, setGender] = useState();
-
   //유저 스테이트 구조분해 할당
-  const { email, password, username, check_password } = user;
+  const { email, password, userName, check_password } = user;
 
   //상태관리 위해 초기값 세팅
   const [usernameInput, setusernameInput] = useState("");
@@ -42,7 +39,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
 
-    if (name === "username")
+    if (name === "userName")
       !regusername.test(value)
         ? setusernameInput("소문자 + 숫자 + 언더바/하이픈 허용 4~20자리입니다.")
         : setusernameInput("");
@@ -69,17 +66,15 @@ const SignUp = () => {
   // 회원가입 POST요청 및 공백 존재 시 경고창 생성
   const onSubmitUserHandler = (e) => {
     e.preventDefault();
-    if (
-      username.trim() === "" ||
-      password.trim() === "" ||
-      check_password.trim() === ""
-    ) {
+    if (userName.trim() === "" || password.trim() === "") {
       return alert("아이디랑 비밀번호를 입력해주세요!");
     }
-
+    if (password !== check_password) {
+      return alert("다시 비번좀!");
+    }
     dispatch(
       __postUser({
-        username,
+        userName,
         password,
         email,
       })
@@ -88,223 +83,123 @@ const SignUp = () => {
   };
 
   return (
-    <StBody>
-      <StRoot>
-        <div>
-          <div className="layout">
-            <div className="layoutBackground">
-              <div className="layoutInner">
-                <div className="header">
-                  <h1 className="Logo">
-                    <StImg
-                      onClick={() => navigate("/")}
-                      src="https://member.op.gg/img_opgglogo.1924961d.svg"
-                    ></StImg>
-                  </h1>
-                  <form onSubmit={onSubmitUserHandler}>
-                    <h2 className="signUpTitle">기본정보입력</h2>
-                    <div className="signUpSub">
-                      회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기
-                      전까지 회원가입이 완료가 되지 않습니다.
-                    </div>
-                    <StPwBox>
-                      <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        placeholder="아이디를 입력해주세요"
-                        onChange={onChangeUserHandler}
-                      ></input>
-                    </StPwBox>
-                    <p id="help-user" className="help">
-                      {usernameInput}
-                    </p>
-                    <StPwBox>
-                      <input
-                        type="email"
-                        name="email"
-                        value={email}
-                        placeholder="이메일을 입력해주세요"
-                        onChange={onChangeUserHandler}
-                      ></input>
-                    </StPwBox>
-                    <p id="help-user" className="help">
-                      {emailInput}
-                    </p>
-                    <StPwBox>
-                      <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        placeholder="비밀번호를 입력하세요"
-                        onChange={onChangeUserHandler}
-                      ></input>
-                    </StPwBox>
-                    <p id="help-password1" className="help">
-                      {passInput}
-                    </p>
-                    <StPwBox>
-                      <input
-                        type="password"
-                        name="check_password"
-                        value={check_password}
-                        placeholder="비밀번호 확인해주세요"
-                        onChange={onChangeUserHandler}
-                      ></input>
-                    </StPwBox>
-                    <p id="help-password2" className="help">
-                      {checkpassInput}
-                    </p>
-                    <StSignUpButtonBox>
-                      <button className="signUpDisabledBtn">회원가입</button>
-                      <button
-                        className="signUpBtn"
-                        onClick={() => navigate("/Login")}
-                      >
-                        취소
-                      </button>
-                    </StSignUpButtonBox>
-                    <StLoginPlace>
-                      이미 회원이신가요?
-                      <a onClick={() => navigate("/login")}>로그인하기</a>
-                    </StLoginPlace>
-                  </form>
-                </div>
+    <StLayOut>
+      <StLoginBox>
+        <div className="loginBox">
+          <div className="smallBox">
+            <h1 className="logoBox">
+              <StImg
+                onClick={() => navigate("/")}
+                src="https://member.op.gg/img_opgglogo.1924961d.svg"
+              ></StImg>
+            </h1>
+            <form onSubmit={onSubmitUserHandler}>
+              <h2 className="signUpTitle">기본정보입력</h2>
+              <div className="signUpSub">
+                회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기 전까지
+                회원가입이 완료가 되지 않습니다.
               </div>
-            </div>
+              <StPwBox>
+                <input
+                  type="text"
+                  name="userName"
+                  value={userName}
+                  placeholder="아이디를 입력해주세요"
+                  onChange={onChangeUserHandler}
+                ></input>
+              </StPwBox>
+              <p id="help-user" className="help">
+                {usernameInput}
+              </p>
+              <StPwBox>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="이메일을 입력해주세요"
+                  onChange={onChangeUserHandler}
+                ></input>
+              </StPwBox>
+              <p id="help-user" className="help">
+                {emailInput}
+              </p>
+              <StPwBox>
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  placeholder="비밀번호를 입력하세요"
+                  onChange={onChangeUserHandler}
+                ></input>
+              </StPwBox>
+              <p id="help-password1" className="help">
+                {passInput}
+              </p>
+              <StPwBox>
+                <input
+                  type="password"
+                  name="check_password"
+                  value={check_password}
+                  placeholder="비밀번호 확인해주세요"
+                  onChange={onChangeUserHandler}
+                ></input>
+              </StPwBox>
+              <p id="help-password2" className="help">
+                {checkpassInput}
+              </p>
+              <StSignUpButtonBox>
+                <button className="signUpDisabledBtn">회원가입</button>
+                <button
+                  className="signUpBtn"
+                  onClick={() => navigate("/Login")}
+                >
+                  취소
+                </button>
+              </StSignUpButtonBox>
+              <StLoginPlace>
+                이미 회원이신가요?
+                <a onClick={() => navigate("/login")}>로그인하기</a>
+              </StLoginPlace>
+            </form>
           </div>
         </div>
-      </StRoot>
-    </StBody>
+      </StLoginBox>
+    </StLayOut>
   );
 };
 
 export default SignUp;
 
-const StBody = styled.div`
-  width: 100%;
-  height: 100%;
-  font-size: 14px;
-  line-height: 1;
-`;
-
-const StRoot = styled.div`
+const StLayOut = styled.div`
   position: relative;
   min-height: 100%;
   background-color: #f3f5f7;
+`;
 
-  .layout {
-    min-width: 320px;
-    min-height: 700px;
-    background-color: #f3f5f7;
-    height: 1080px;
+const StLoginBox = styled.div`
+  position: relative;
+  min-width: 320px;
+  min-height: 100%;
+  padding: 120px 0 170px;
+  .loginBox {
+    position: relative;
     margin: 0 auto;
-    width: 1920px;
-  }
-  .layoutBackground {
-    position: absolute;
-    width: 610px;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    margin-left: -305px;
+    width: 450px;
+    min-height: 682px;
     background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
   }
-  .layoutInner {
-    position: relative;
-    margin: 0 80px;
-    padding-bottom: 88px;
+  .smallBox {
+    margin: 0 40px;
+    padding-bottom: 40px;
   }
-  .header {
-    padding-top: 88px;
-    padding-bottom: 56px;
-  }
-  .Logo {
+  .logoBox {
+    padding-top: 48px;
     text-align: center;
-  }
-  .signUpTitle {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-  }
-  .signUpSub {
-    margin-top: 12px;
-    padding: 16px;
-    background-color: #f3f5f7;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #52595f;
-    margin-bottom: 32px;
-    word-break: keep-all;
-  }
-  .inputState {
-    margin-top: 27px;
-    position: relative;
-    padding: 10px 0 11px;
-    border-bottom: 1px solid #dddfe4;
-  }
-  .idInput {
-    position: relative;
-    z-index: 10;
-    border: 0;
-    padding: 0;
-    background-color: transparent;
-    outline: 0;
-    ::placeholder {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 19px;
-      width: 100%;
-      color: #7b858e;
-      bottom: 3px;
-      left: 0;
-      top: 11px;
-      transform-origin: bottom left;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transition-property: color, bottom, transform;
-    }
-  }
-  .SignUpMsg {
-    position: relative;
-    color: #98a0a7;
-    margin-top: 8px;
-    font-size: 14px;
-    line-height: 20px;
+    margin-bottom: 42px;
   }
 `;
 
-const StNameInput = styled.div`
-  .inputState {
-    margin-top: 27px;
-    position: relative;
-    padding: 10px 0 11px;
-    border-bottom: 1px solid #dddfe4;
-  }
-  .IdInput {
-    position: relative;
-    z-index: 10;
-    border: 0;
-    padding: 0;
-    background-color: transparent;
-    outline: 0;
-
-    ::placeholder {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-      width: 100%;
-      color: #7b858e;
-
-      bottom: 3px;
-      left: 0;
-      top: 11px;
-      transform-origin: bottom left;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transition-property: color, bottom, transform;
-    }
-  }
-`;
 const StPwBox = styled.div`
   margin-top: 27px;
   position: relative;
@@ -348,13 +243,13 @@ const StSignUpButtonBox = styled.div`
     font-weight: 400;
     line-height: 19px;
     text-align: center;
-    background-color: #1ea1f7;
+    background-color: #d5e3ec;
     font-weight: 700;
     cursor: pointer;
     line-height: 56px;
     padding: 0 20px;
     float: right;
-    width: 217px;
+    width: 180px;
   }
   .signUpDisabledBtn {
     font-size: 16px;
@@ -369,11 +264,11 @@ const StSignUpButtonBox = styled.div`
     text-align: center;
     cursor: default;
     font-weight: 700;
-    background-color: #dddfe4;
+    background-color: #1ea1f7;
     line-height: 56px;
     padding: 0 20px;
-    float: right;
-    width: 217px;
+    float: left;
+    width: 180px;
   }
   .canCle {
     background-color: #fff;
