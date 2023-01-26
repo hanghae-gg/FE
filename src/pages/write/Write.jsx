@@ -100,7 +100,7 @@ const Add = () => {
                   name="listName"
                   required
                 />
-                <StInput
+                <StInputJpg
                   type="file"
                   accept="image/jpg,image/png,image/jpeg,image/gif"
                   onChange={handleChangeFile}
@@ -110,7 +110,7 @@ const Add = () => {
                   return (
                     <img
                       className="
-                      mb-8
+                      m-auto
                       "
                       key={Date.now()}
                       src={item}
@@ -197,7 +197,7 @@ const StButton = styled.button`
 `;
 const StButtons = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const StInputBox = styled.div`
@@ -206,6 +206,15 @@ const StInputBox = styled.div`
   text-align: center;
 `;
 const StInput = styled.input`
+  width: 300px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  padding: 5px;
+  margin-top: 5px;
+`;
+
+const StInputJpg = styled.input`
   width: 300px;
   height: 30px;
   border-radius: 15px;

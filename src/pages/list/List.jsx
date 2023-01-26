@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import "./../App.css";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import JK from "../../shared/JKHeader";
-// import Layout from "../shared/Layout";
-// import Love from "./love/Love";
-// import Rank from "./rank/Rank";
 
 // 토큰 값 로컬스토리지에서 지정가져오기
 const token = localStorage.getItem("Authorizationtest");
@@ -48,25 +44,6 @@ const Index = () => {
   return (
     <JK>
       <StContent>
-        <StTopbtn>
-          <Header>
-            <Btn
-              onClick={() => {
-                window.localStorage.clear();
-                navigate("/");
-              }}
-            >
-              로그아웃
-            </Btn>
-            <Btn
-              onClick={() => {
-                navigate("/Write");
-              }}
-            >
-              게시글 작성하기
-            </Btn>
-          </Header>
-        </StTopbtn>
         <Listt>
           {lists?.map((list) => {
             return (
@@ -77,7 +54,7 @@ const Index = () => {
                     navigate(`/Detail/${list.postId}`);
                   }}
                 >
-                  <StImage src={list.image} />
+                  <StImage src={list.image} style={{ width: "100%", height: "100%" }} />
                 </div>
                 <div>
                   <StOneList>
@@ -122,35 +99,6 @@ const StOneListBox = styled.div`
 `;
 
 const StOneList = styled.div``;
-
-const Header = styled.div`
-  margin-top: 80px;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  margin-bottom: 24px;
-`;
-
-const Btn = styled.button`
-  width: 170px;
-  background-color: #10b981;
-  border: none;
-  color: white;
-  align-items: center;
-  min-height: 10px;
-  border-radius: 25px;
-  padding: 15px;
-  margin: auto;
-  font-weight: bold;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 15px;
-`;
 
 const Listt = styled.div`
   height: fit-content;
@@ -202,4 +150,3 @@ const StContent = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const StTopbtn = styled.div``;

@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const JK = ({ children }) => {
+  const navigate = useNavigate();
   function Header() {
     return (
       <>
@@ -17,29 +18,47 @@ const JK = ({ children }) => {
                 ></img>
               </span>
               <div className="account__info">
-                <div className="account__name">닉네임</div>
-                <div className="account__level">레벨1</div>
                 <div className="level-chart">
                   <div className="level-chart__gauge"></div>
                 </div>
-                <div className="level-next">다음 레벨까지 9 남음</div>
               </div>
             </div>
-            <div className="sidebar-button-login">
-              <div className="sidebar-button__item-login">
-                <Link to="/Write" className="link-button-green">
-                  <button className="green-button">글쓰기</button>
-                </Link>
-                <button
-                  className="green-button"
-                  onClick={() => {
-                    window.localStorage.clear();
-                  }}
-                >
-                  로그아웃
-                </button>
-              </div>
-            </div>
+            <Stjkbtngroup>
+              <Stjkbtn
+                className="sidebar-button__item-login"
+                onClick={() => {
+                  navigate("/Write");
+                }}
+              >
+                글작성
+              </Stjkbtn>
+              <Stjkbtn
+                className="sidebar-button__item-login"
+                onClick={() => {
+                  navigate("/List");
+                }}
+              >
+                리스트
+              </Stjkbtn>
+              <Stjkbtn
+                className="sidebar-button__item-login"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                홈
+              </Stjkbtn>
+              <Stjkbtn
+                className="sidebar-button__item-login"
+                onClick={() => {
+                  window.localStorage.clear();
+                  navigate("/");
+                }}
+              >
+                로그아웃
+              </Stjkbtn>
+            </Stjkbtngroup>
+
             <div className="sidebar-button--row">
               <div className="sidebar-button__item"></div>
             </div>
@@ -77,8 +96,28 @@ const JK = ({ children }) => {
 };
 export default JK;
 
+const Stjkbtn = styled.button`
+  border: black 1px;
+  color: white;
+  box-shadow: 0px 0px 0px 0px #007144;
+  &:hover {
+    box-shadow: 0px 5px 0px 0px #007144;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+`;
+
+const Stjkbtngroup = styled.div`
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 const StSidebarContentHeader = styled.div`
+  background-color: #0fb180;
   padding: 16px;
+
   .sidebar-button-logout {
     display: table;
     width: 100%;

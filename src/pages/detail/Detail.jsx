@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Comments from "./comments/Comments";
+import JK from "../../shared/JKHeader";
 
 const Detail = () => {
   const { id } = useParams();
@@ -55,131 +56,106 @@ const Detail = () => {
 
   return (
     <>
-      <StDetailALl>
-        {!isEditMode && (
-          <StDetailBox>
-            <StPicwithDesc>
-              <StListPic>
-                <StImage src={mylist.image} />
-              </StListPic>
-              <StDecsBox>
-                <StDescDIv>
-                  <h3>{mylist.title}</h3>
-                  <br />
-                  <StDesc>설명: </StDesc>
-                  {mylist.content}
-                  <hr />
-                </StDescDIv>
-              </StDecsBox>
-            </StPicwithDesc>
-            <StButtonDiv>
-              <StButton
-                size="large"
-                onClick={() => {
-                  setIsEditMode(true);
-                }}
-              >
-                글 수정
-              </StButton>
-              <StButton
-                size="large"
-                onClick={() => {
-                  onDeletThisList();
-                }}
-              >
-                글 삭제
-              </StButton>
-            </StButtonDiv>
-            {/* <StLoveVIew>
+      <JK>
+        <StDetailALl>
+          {!isEditMode && (
+            <StDetailBox>
+              <StPicwithDesc>
+                <StListPic>
+                  <StImage src={mylist.image} style={{ width: "80%", height: "80%" }} />
+                </StListPic>
+                <StDecsBox>
+                  <StDescDIv>
+                    <h3>{mylist.title}</h3>
+                    <br />
+                    <StDesc>설명: </StDesc>
+                    {mylist.content}
+                    <hr />
+                  </StDescDIv>
+                </StDecsBox>
+              </StPicwithDesc>
+              <StButtonDiv>
+                <StButton
+                  size="large"
+                  onClick={() => {
+                    setIsEditMode(true);
+                  }}
+                >
+                  글 수정
+                </StButton>
+                <StButton
+                  size="large"
+                  onClick={() => {
+                    onDeletThisList();
+                  }}
+                >
+                  글 삭제
+                </StButton>
+              </StButtonDiv>
+              {/* <StLoveVIew>
               <StLove>💜 {mylist.love}</StLove>
               <StView>👀 {mylist.visit}</StView>
             </StLoveVIew> */}
-          </StDetailBox>
-        )}
-        {isEditMode && (
-          <StDetailBox>
-            <StDecs2Box>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  onEditThisList(updatedList);
-                  setIsEditMode(false);
-                }}
-              >
-                <h3>🐾 게시글 수정하기 🐾</h3>
-                이름 :
-                <StInput
-                  required
-                  type="text"
-                  placeholder={mylist.title}
-                  onChange={(ev) => {
-                    setUpdatedList({
-                      ...updatedList,
-                      listName: ev.target.value,
-                    });
+            </StDetailBox>
+          )}
+          {isEditMode && (
+            <StDetailBox>
+              <StDecs2Box>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    onEditThisList(updatedList);
+                    setIsEditMode(false);
                   }}
-                />
-                <br />
-                나이 :{" "}
-                <StInput
-                  required
-                  type="number"
-                  min="1"
-                  placeholder={mylist.age}
-                  onChange={(ev) => {
-                    setUpdatedList({
-                      ...updatedList,
-                      age: ev.target.value,
-                    });
-                  }}
-                />
-                <br />
-                성별 :{" "}
-                <StInput
-                  required
-                  type="text"
-                  placeholder={mylist.gender}
-                  onChange={(ev) => {
-                    setUpdatedList({
-                      ...updatedList,
-                      gender: ev.target.value,
-                    });
-                  }}
-                />
-                <input type="file" />
-                <br />
-                설명 :{" "}
-                <StDescInput
-                  required
-                  type="text"
-                  placeholder={mylist.text}
-                  onChange={(ev) => {
-                    setUpdatedList({
-                      ...updatedList,
-                      text: ev.target.value,
-                    });
-                  }}
-                />
-                <br />{" "}
-                <StButtonDiv1>
-                  <StButton type="submit " size="large">
-                    저장
-                  </StButton>
-                  <StButton
-                    size="large"
-                    onClick={() => {
-                      setIsEditMode(false);
+                >
+                  <StImage src={mylist.image} style={{ width: "80%", height: "80%" }} />
+                  <h3>게시글 수정하기 </h3>
+                  제목 :
+                  <StInput
+                    required
+                    type="text"
+                    placeholder={mylist.title}
+                    onChange={(ev) => {
+                      setUpdatedList({
+                        ...updatedList,
+                        listName: ev.target.value,
+                      });
                     }}
-                  >
-                    뒤로
-                  </StButton>
-                </StButtonDiv1>
-              </form>
-            </StDecs2Box>
-          </StDetailBox>
-        )}
-      </StDetailALl>
-      {!isEditMode && <Comments />}
+                  />
+                  <br />
+                  설명 :{" "}
+                  <StDescInput
+                    required
+                    type="text"
+                    placeholder={mylist.content}
+                    onChange={(ev) => {
+                      setUpdatedList({
+                        ...updatedList,
+                        text: ev.target.value,
+                      });
+                    }}
+                  />
+                  <br />{" "}
+                  <StButtonDiv1>
+                    <StButton type="submit " size="large">
+                      저장
+                    </StButton>
+                    <StButton
+                      size="large"
+                      onClick={() => {
+                        setIsEditMode(false);
+                      }}
+                    >
+                      뒤로
+                    </StButton>
+                  </StButtonDiv1>
+                </form>
+              </StDecs2Box>
+            </StDetailBox>
+          )}
+        </StDetailALl>
+        {!isEditMode && <Comments />}
+      </JK>
     </>
   );
 };
@@ -216,6 +192,7 @@ const StDecs2Box = styled.div`
   margin-left: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #ececec;
   border-radius: 15px;
 `;
@@ -236,35 +213,6 @@ const StPicwithDesc = styled.div`
   justify-content: center;
 `;
 
-// const StLoveVIew = styled.div`
-//   border-radius: 20px;
-//   padding: 20px;
-//   width: 600px;
-//   height: 50px;
-//   margin-top: 20px;
-//   display: flex;
-//   justify-content: space-around;
-// `;
-
-// const StLove = styled.div`
-//   margin-top: 5px;
-//   background-color: #ececec;
-//   border-radius: 20px;
-//   text-align: center;
-//   padding-top: 15px;
-//   width: 200px;
-//   height: 40px;
-// `;
-
-// const StView = styled.div`
-//   margin-top: 5px;
-//   background-color: #ececec;
-//   border-radius: 20px;
-//   text-align: center;
-//   padding-top: 15px;
-//   width: 200px;
-//   height: 40px;
-// `;
 const StButton = styled.button`
   margin: 10px auto auto 10px;
   background-color: black;
@@ -280,29 +228,20 @@ const StButton = styled.button`
   font-weight: bold;
   font-size: 13px;
   color: white;
-  /* justify-content: space-between; */
   cursor: pointer;
-  /* align-items: left; */
-  /* font-family: "Noto Sans KR", sans-serif; */
 `;
 const StButtonDiv1 = styled.div`
-  justify-content: center;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
   margin-left: 170px;
   margin-top: 10px;
   margin-bottom: 20px;
 `;
 const StButtonDiv = styled.div`
-  justify-content: center;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  margin: auto;
 `;
+
 const StInput = styled.input`
   width: 300px;
   height: 20px;
