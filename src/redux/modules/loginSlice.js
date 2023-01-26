@@ -60,8 +60,8 @@ export const __postLogin = createAsyncThunk(
 
         .then((res) => {
           console.log(res.data.status);
-          sessionStorage.setItem("access_token", res.headers.access_token);
-          sessionStorage.setItem("refresh_token", res.headers.refresh_token);
+          localStorage.setItem("access_token", res.headers.access_token);
+          localStorage.setItem("refresh_token", res.headers.refresh_token);
           console.log(res);
           console.log(payload);
           return res;
