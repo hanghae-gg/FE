@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
+import lol from "../img/lol.jpg";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -178,8 +179,9 @@ const Stboard = styled.div`
   margin-top: 8%;
   border-radius: 20px;
   &:hover {
-    background: #4ea5f7;
-    color: white;
+    color: #03000c;
     transition: 0.5s;
+    background-image: url(${lol});
+    background-position: center;
   }
 `;
