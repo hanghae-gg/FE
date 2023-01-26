@@ -65,6 +65,36 @@ const JK = ({ children }) => {
             항해99 OP.GG 5조 클론코딩 SA보러가기
           </a>
         </StNotice>
+        <StBackground>
+          <div className="backgroundImg"></div>
+          <div className="content">
+            <div className="game-info-content">
+              <StLink to={"/List"}>
+                <img
+                  src="https://talk.op.gg/images/game/icon-community-lol.png"
+                  alt="game-info__icon"
+                />
+                <h1 className="game-info__name">리그오브레전드</h1>
+              </StLink>
+            </div>
+            <form
+              className="game-info-search"
+              // onSubmit={onSubmitHandler}
+            >
+              <input
+                className="game-info-search__input"
+                type="text"
+                name="keyword"
+                // value={keyword.keyword}
+                placeholder="검색어 입력"
+                // onChange={onChangeHandler}
+              />
+              <button className="game-info-search__button">
+                <img src="https://talk.op.gg/images/btn-lol@2x.png" alt=""></img>
+              </button>
+            </form>
+          </div>
+        </StBackground>
       </>
     );
   }
@@ -112,11 +142,6 @@ const StNotice = styled.div`
     text-decoration: none;
     cursor: pointer;
   }
-`;
-
-const StBackground = styled.div`
-  background-color: #ecfdf5;
-  height: 100vh;
 `;
 
 const Stjkbtn = styled.button`
@@ -286,5 +311,93 @@ const StSidebarContentHeader = styled.div`
         background-color: #0fb180;
       }
     }
+  }
+`;
+
+const StBackground = styled.div`
+  display: block;
+  position: relative;
+  height: 200px;
+  background: #fff;
+  .backgroundImg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: linear-gradient(180deg, rgba(51, 56, 60, 0.5), rgba(0, 0, 0, 0.5)),
+      url("https://talk.op.gg/images/game/bg_lol.jpg");
+    background-size: 100%;
+    background-position: 50% 30%;
+  }
+  .content {
+    position: relative;
+    max-width: 1044px;
+    margin: 0 auto;
+    .game-info-content {
+      padding-top: 75px;
+      display: inline-block;
+      position: relative;
+      padding-left: 24px;
+      white-space: nowrap;
+    }
+    .game-info-search {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 102px;
+      .game-info-search__input {
+        border-radius: 2px;
+        background: #fff;
+        border: none;
+        width: 268px;
+        line-height: 17px;
+        font-size: 14px;
+        padding: 12px 62px 11px 12px;
+        box-sizing: border-box;
+        outline: none;
+      }
+      .game-info-search__button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        font-family: inherit;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        img {
+          margin-top: 5px;
+          margin-right: 6px;
+          vertical-align: middle;
+          width: 50px;
+        }
+      }
+    }
+  }
+`;
+const StLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  img {
+    height: 60px;
+    margin-right: 8px;
+    float: left;
+    vertical-align: middle;
+  }
+  h1 {
+    display: block;
+    margin-top: 0;
+    line-height: 39px;
+    font-size: 32px;
+    color: #fff;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
   }
 `;

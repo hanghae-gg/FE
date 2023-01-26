@@ -67,7 +67,7 @@ const Add = () => {
         bg-gradient-to-r 
         from-indigo-600 
         to-pink-500 
-        text-white px-2 
+        text-black px-2 
         box-content h-450 w-320 p-4 
         border-4
         rounded-3xl
