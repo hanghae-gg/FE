@@ -13,15 +13,11 @@ const JK = ({ children }) => {
               <span className="account__tier">
                 <img
                   className="account__tier-icon"
-                  src="//talk.op.gg/images/tier/icon-level-1.png"
+                  src="https://talk.op.gg/images/game/icon-community-lol.png"
                   alt="level"
                 ></img>
               </span>
-              <div className="account__info">
-                <div className="level-chart">
-                  <div className="level-chart__gauge"></div>
-                </div>
-              </div>
+              <div className="account__info"></div>
             </div>
             <Stjkbtngroup>
               <Stjkbtn
@@ -64,6 +60,11 @@ const JK = ({ children }) => {
             </div>
           </>
         </StSidebarContentHeader>
+        <StNotice>
+          <a href="https://funky-nail-e73.notion.site/5-SA-fd426716c90a4a3fbda6e395bd9f9b10">
+            항해99 OP.GG 5조 클론코딩 SA보러가기
+          </a>
+        </StNotice>
       </>
     );
   }
@@ -86,21 +87,44 @@ const JK = ({ children }) => {
 
   return (
     <body>
-      <div>
+      <StBackground>
         <Header />
         <div style={{ ...layoutStyles }}>{children}</div>
-        <Footer />
-      </div>
+        {/* <Footer /> */}
+      </StBackground>
     </body>
   );
 };
 export default JK;
+
+const StNotice = styled.div`
+  background-color: #000000c0;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
+
+const StBackground = styled.div`
+  background-color: #ecfdf5;
+  height: 100vh;
+`;
 
 const Stjkbtn = styled.button`
   border: black 1px;
   color: white;
   box-shadow: 0px 0px 0px 0px #007144;
   &:hover {
+    transition: 0.5s;
     box-shadow: 0px 5px 0px 0px #007144;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -115,7 +139,7 @@ const Stjkbtngroup = styled.div`
 `;
 
 const StSidebarContentHeader = styled.div`
-  background-color: #0fb180;
+  background-color: #46cfa7;
   padding: 16px;
 
   .sidebar-button-logout {
