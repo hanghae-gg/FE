@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
+import JK from "../../shared/JKHeader";
+import { autoBatchEnhancer } from "@reduxjs/toolkit";
 
 const Add = () => {
   const navigate = useNavigate();
@@ -58,98 +60,110 @@ const Add = () => {
   };
 
   return (
-    <StCenter>
-      <StWhole>
-        <StTitleBox>게시글 작성하기</StTitleBox>
-        <StAddCard>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              onWriteHandler(lists);
-            }}
-          >
-            <StInputBox>
-              <br />
-              <StInput
-                fullwidth
-                type="text"
-                onChange={(event) => {
-                  const { value } = event.target;
-                  setLists({
-                    ...lists,
-                    listName: value,
-                  });
-                }}
-                placeholder="제목 : "
-                value={lists.listName}
-                name="listName"
-                required
-              />
-              <StInput
-                type="file"
-                accept="image/jpg,image/png,image/jpeg,image/gif"
-                onChange={handleChangeFile}
-                multiple="multiple"
-              />
-              {imgBase64.map((item) => {
-                return (
-                  <img
-                    key={Date.now()}
-                    src={item}
-                    alt="First slide"
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                );
-              })}
-              <Textarea
-                name="text"
-                onChange={(event) => {
-                  const { value } = event.target;
-                  setLists({
-                    ...lists,
-                    text: value,
-                  });
-                }}
-                value={lists.text}
-                rows="10"
-                maxLength={200}
-                placeholder="게시글 설명 : "
-                required
-              />
-            </StInputBox>
-            <StButtons>
-              <StButton type="submit">저장하기</StButton>
-              <StButton
-                onClick={() => {
-                  navigate(-1);
-                }}
-              >
-                뒤로가기
-              </StButton>
-            </StButtons>{" "}
-          </form>
-        </StAddCard>
-      </StWhole>
-    </StCenter>
+    <>
+      <JK>
+        <div
+          className="
+        box-decoration-clone 
+        bg-gradient-to-r 
+        from-indigo-600 
+        to-pink-500 
+        text-white px-2 
+        box-content h-450 w-320 p-4 
+        border-4
+        rounded-3xl
+        flex 
+        flex-col 
+        justify-center
+        "
+        >
+          <StAddCard>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                onWriteHandler(lists);
+              }}
+            >
+              <StInputBox>
+                <br />
+                <StInput
+                  fullwidth
+                  type="text"
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setLists({
+                      ...lists,
+                      listName: value,
+                    });
+                  }}
+                  placeholder="제목 : "
+                  value={lists.listName}
+                  name="listName"
+                  required
+                />
+                <StInput
+                  type="file"
+                  accept="image/jpg,image/png,image/jpeg,image/gif"
+                  onChange={handleChangeFile}
+                  multiple="multiple"
+                />
+                {imgBase64.map((item) => {
+                  return (
+                    <img
+                      className="
+                      mb-8
+                      "
+                      key={Date.now()}
+                      src={item}
+                      alt="First slide"
+                      style={{ width: "80%", height: "80%" }}
+                    />
+                  );
+                })}
+                <Textarea
+                  name="text"
+                  onChange={(event) => {
+                    const { value } = event.target;
+                    setLists({
+                      ...lists,
+                      text: value,
+                    });
+                  }}
+                  value={lists.text}
+                  rows="10"
+                  maxLength={200}
+                  placeholder="게시글 설명 : "
+                  required
+                />
+              </StInputBox>
+              <StButtons>
+                <StButton type="submit">저장하기</StButton>
+                <StButton
+                  onClick={() => {
+                    navigate(-1);
+                  }}
+                >
+                  뒤로가기
+                </StButton>
+              </StButtons>{" "}
+            </form>
+          </StAddCard>
+        </div>
+      </JK>
+    </>
   );
 };
 
 export default Add;
 
 // 전체중앙정렬
-const StCenter = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-`;
 
 // textarea 크기고정(width 100%)및 css
 const Textarea = styled.textarea`
   margin-top: 10px;
   width: 200px;
   border: 1px solid #eee;
-  padding: 12px;
+  padding: 5px;
   font-size: 14px;
   border-radius: 20px;
   width: 300px;
@@ -186,31 +200,15 @@ const StButtons = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const StWhole = styled.div`
-  background-color: black;
-  margin-top: 100px;
-`;
-const StTitleBox = styled.h2`
-  /* text-align: center; */
-  padding-top: 30px;
-  padding-bottom: 110px;
-  margin-bottom: -110px;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  background-color: #dadada;
-  width: 400px;
-  height: 50px;
-  border-radius: 60px;
-`;
+
 const StInputBox = styled.div`
   margin-top: -50px;
-  width: 350px;
+  width: 400px;
   text-align: center;
 `;
 const StInput = styled.input`
   width: 300px;
-  height: 20px;
+  height: 30px;
   border-radius: 15px;
   border: none;
   padding: 5px;

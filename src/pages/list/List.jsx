@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import JK from "../../shared/JKHeader";
 // import Layout from "../shared/Layout";
 // import Love from "./love/Love";
 // import Rank from "./rank/Rank";
@@ -45,64 +46,66 @@ const Index = () => {
   }, []);
 
   return (
-    <StContent>
-      <StTopbtn>
-        <Header>
-          <Btn
-            onClick={() => {
-              window.localStorage.clear();
-              navigate("/");
-            }}
-          >
-            로그아웃
-          </Btn>
-          <Btn
-            onClick={() => {
-              navigate("/Write");
-            }}
-          >
-            게시글 작성하기
-          </Btn>
-        </Header>
-      </StTopbtn>
-      <Listt>
-        {lists?.map((list) => {
-          return (
-            <StOneListBox key={list.postId}>
-              <div
-                key={list.postId}
-                onClick={() => {
-                  navigate(`/Detail/${list.postId}`);
-                }}
-              >
-                <StImage src={list.image} />
-              </div>
-              <div>
-                <StOneList>
-                  <br />
-                  <div>
-                    <span>
-                      <Unit>{list.title}</Unit>
-                    </span>
-                  </div>
-                  <br />
-                  <div>
-                    <StButton
-                      type="button"
-                      onClick={() => {
-                        onClickDeleteLists(list.postId);
-                      }}
-                    >
-                      삭제하기
-                    </StButton>
-                  </div>
-                </StOneList>
-              </div>
-            </StOneListBox>
-          );
-        })}
-      </Listt>
-    </StContent>
+    <JK>
+      <StContent>
+        <StTopbtn>
+          <Header>
+            <Btn
+              onClick={() => {
+                window.localStorage.clear();
+                navigate("/");
+              }}
+            >
+              로그아웃
+            </Btn>
+            <Btn
+              onClick={() => {
+                navigate("/Write");
+              }}
+            >
+              게시글 작성하기
+            </Btn>
+          </Header>
+        </StTopbtn>
+        <Listt>
+          {lists?.map((list) => {
+            return (
+              <StOneListBox key={list.postId}>
+                <div
+                  key={list.postId}
+                  onClick={() => {
+                    navigate(`/Detail/${list.postId}`);
+                  }}
+                >
+                  <StImage src={list.image} />
+                </div>
+                <div>
+                  <StOneList>
+                    <br />
+                    <div>
+                      <span>
+                        <Unit>{list.title}</Unit>
+                      </span>
+                    </div>
+                    <br />
+                    <div>
+                      <StButton
+                        type="button"
+                        onClick={() => {
+                          onClickDeleteLists(list.postId);
+                        }}
+                      >
+                        삭제하기
+                      </StButton>
+                    </div>
+                  </StOneList>
+                </div>
+              </StOneListBox>
+            );
+          })}
+        </Listt>
+      </StContent>
+    </JK>
   );
 };
 
@@ -132,7 +135,7 @@ const Header = styled.div`
 
 const Btn = styled.button`
   width: 170px;
-  background-color: #343434;
+  background-color: #10b981;
   border: none;
   color: white;
   align-items: center;
