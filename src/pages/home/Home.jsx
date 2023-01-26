@@ -1,42 +1,55 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 
 const MainPage = () => {
+  const navigate = useNavigate();
   useEffect(() => {}, []);
 
   return (
-    <>
+    <StBackground>
       <ExHeader></ExHeader>
-      <StBackground>
-        <StImgDiv>
-          <StImg src="https://opgg-static.akamaized.net/logo/20221024143822.5f982558178b4dbf96c34ae9b2706d92.png?image=q_auto,f_webp,w_auto&v=1666684602785" />
-        </StImgDiv>
-        <div className="container mx-auto px-1">
-          <StInputBox>
-            <StFormBox>
-              <StSelectBox>
-                <StSmall>Region</StSmall>
-                <StSelect>
-                  <StOption>Korea</StOption>
-                </StSelect>
-              </StSelectBox>
-              <StInputDiv>
-                <label>Search</label>
-                <input type="text" placeholder="소환사명, 소환사명, ..." />
-              </StInputDiv>
-              <StSubmitButton>.GG</StSubmitButton>
-            </StFormBox>
-          </StInputBox>
-        </div>
-      </StBackground>
-    </>
+      <StNotice>
+        <a href="https://talk.op.gg/s/lol/free/5502311">
+          항해99 OP.GG 5조 클론코딩
+        </a>
+      </StNotice>
+      <StImgDiv>
+        <StImg src="https://opgg-static.akamaized.net/logo/20221024143822.5f982558178b4dbf96c34ae9b2706d92.png?image=q_auto,f_webp,w_auto&v=1666684602785" />
+      </StImgDiv>
+      <div className="container mx-auto px-1">
+        <StInputBox>
+          <StFormBox>
+            <StSelectBox>
+              <StSmall>Region</StSmall>
+              <StSelect>
+                <StOption>Korea</StOption>
+              </StSelect>
+            </StSelectBox>
+            <StInputDiv>
+              <label>Search</label>
+              <input type="text" placeholder="소환사명, 소환사명, ..." />
+            </StInputDiv>
+            <StSubmitButton>.GG</StSubmitButton>
+          </StFormBox>
+        </StInputBox>
+        <Stboard
+          onClick={() => {
+            navigate(`/List`);
+          }}
+        >
+          <h1 className="text-4xl italic ml-44 pt-28">게시글로 이동...</h1>
+        </Stboard>
+      </div>
+    </StBackground>
   );
 };
 export default MainPage;
 
 const StBackground = styled.div`
-  background-color: #292828;
+  background-color: #5383e8;
+  height: 100vh;
 `;
 
 const StImgDiv = styled.div`
@@ -48,7 +61,22 @@ const StImg = styled.img`
   max-height: 224px;
   margin: 50px auto;
 `;
-
+const StNotice = styled.div`
+  background-color: #fff064;
+  text-align: center;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  a {
+    color: #080101;
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
 const StInputBox = styled.div`
   position: relative;
   width: 800px;
@@ -140,4 +168,18 @@ const StOption = styled.option`
   white-space: nowrap;
   min-height: 1.2em;
   padding: 0px 2px 1px;
+`;
+
+const Stboard = styled.div`
+  width: 40%;
+  height: 300px;
+  background-color: white;
+  margin-left: 32%;
+  margin-top: 8%;
+  border-radius: 20px;
+  &:hover {
+    background: #4ea5f7;
+    color: white;
+    transition: 0.5s;
+  }
 `;
