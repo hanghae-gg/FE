@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 
 const MainPage = () => {
-  const navigate = useNavigate();
   useEffect(() => {}, []);
 
   return (

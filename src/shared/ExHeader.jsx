@@ -643,25 +643,6 @@ const StSecondLolA = styled(Link)`
   text-decoration: none;
   cursor: pointer;
 `;
-const StSecondPUBGA = styled.a`
-  display: block;
-  float: left;
-  line-height: 48px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 48px;
-  font-size: 15px;
-  box-sizing: border-box;
-  color: #9aa4af;
-  margin-left: 24px;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  margin-left: 24px;
-`;
 const StSecondWatchA = styled(Link)`
   display: block;
   float: left;
@@ -681,25 +662,7 @@ const StSecondWatchA = styled(Link)`
   border: 0;
   margin-left: 24px;
 `;
-const StSecondRainA = styled.a`
-  display: block;
-  float: left;
-  line-height: 48px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 48px;
-  font-size: 15px;
-  box-sizing: border-box;
-  color: #9aa4af;
-  margin-left: 24px;
-  text-decoration: none;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  margin-left: 24px;
-`;
+
 const HeaderLoginButton = styled.button`
   font-size: 12px;
   margin-top: 7px;
@@ -793,24 +756,4 @@ const StUserSetButton = styled.a`
   border-radius: 0;
   width: 100%;
   padding: 10px 0;
-`;
-const StBanner = styled.div`
-  display: block;
-  width: 100%;
-  color: #202d37;
-  background: #ffb900;
-  a {
-    display: block;
-    margin: 0 auto;
-    text-align: left;
-    box-sizing: border-box;
-    width: 1080px;
-    font-size: 14px;
-    min-height: 40px;
-    line-height: 40px;
-    padding: 0;
-    color: inherit;
-    cursor: pointer;
-    text-decoration: none;
-  }
 `;

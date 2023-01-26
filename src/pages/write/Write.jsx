@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import JK from "../../shared/JKHeader";
-import { autoBatchEnhancer } from "@reduxjs/toolkit";
 
 const Add = () => {
   const navigate = useNavigate();
