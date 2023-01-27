@@ -8,13 +8,12 @@ import styled from "styled-components";
 const MainHeader = () => {
   const navigate = useNavigate();
   //   const dispatch = useDispatch();
-  const token = sessionStorage.getItem("Access_Token");
-  const name = sessionStorage.getItem("name");
+  const token = localStorage.getItem("Access_Token");
+
   //   const [isLogin, setIsLogin] = useRecoilState(Login);
   const LogoutButton = () => {
-    sessionStorage.removeItem("Access_Token");
-    sessionStorage.removeItem("Refresh_Token");
-    sessionStorage.removeItem("name");
+    localStorage.removeItem("Access_Token");
+
     // dispatch(logoutState());
     // setIsLogin(false);
     navigate("/");
@@ -40,10 +39,6 @@ const MainHeader = () => {
           <StNavigationListContainer>
             {token ? (
               <StHeaderLogoutToggle>
-                <StHeaderLogoutSpan>
-                  {name}
-                  <StLogoutImg src="https://talk.op.gg/images/icon-gnb-dropdown.png" />
-                </StHeaderLogoutSpan>
                 <StDropdown>
                   <StDropDownList>
                     <StDropDownListItem>

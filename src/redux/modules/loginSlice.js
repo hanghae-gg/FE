@@ -13,7 +13,7 @@ const initialState = {
   error: null,
   isLogin: false,
 };
-
+//회원가입
 export const __postUser = createAsyncThunk(
   "signup",
   async (payload, thunkAPI) => {
