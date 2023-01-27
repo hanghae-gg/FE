@@ -1,45 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import JK from "../../shared/JKHeader";
+import Lists from "./Lists";
 
-// 토큰 값 로컬스토리지에서 지정가져오기
-const token = localStorage.getItem("Authorizationtest");
-
-const Index = () => {
+const List = () => {
   const navigate = useNavigate();
-  const [lists, setLists] = useState([]);
-
-  const fetchList = async () => {
-    const { data } = await axios.get(`${process.env.REACT_APP_LIST}/posts`, {
-      headers: {
-        Authorization: token,
-      },
-    });
-    setLists(data);
-  };
-
-  // const onClickDeleteLists = async (id) => {
-  //   const result = window.confirm("삭제하시겠습니까?");
-  //   if (!token) {
-  //     alert("로그인을 해주세요");
-  //   } else {
-  //     if (result) {
-  //       await axios.delete(`${process.env.REACT_APP_LIST}/posts/${id}`, {
-  //         headers: {
-  //           Authorization: token,
-  //         },
-  //       });
-  //     } else {
-  //       return;
-  //     }
-  //   }
-  // };
-
-  useEffect(() => {
-    fetchList();
-  }, []);
+  const token = localStorage.getItem("Authorizationtest");
 
   return (
     <JK>
@@ -115,117 +82,17 @@ const Index = () => {
           </div>
         </div>
         <section className="article-list">
-          <Listt>
-            {lists?.map((list) => {
-              return (
-                <StOneListBox key={list.postId}>
-                  <div
-                    key={list.postId}
-                    onClick={() => {
-                      navigate(`/Detail/${list.postId}`);
-                    }}
-                  >
-                    <div>
-                      <StOneList>
-                        <StTitleDelete>
-                          <Unit>{list.title}</Unit>
-                          {/* <StButton
-                            type="button"
-                            onClick={() => {
-                              onClickDeleteLists(list.postId);
-                            }}
-                          >
-                            삭제하기
-                          </StButton> */}
-                        </StTitleDelete>
-                        <StImage src={list.image} style={{ width: "20%", height: "20%" }} />
-                      </StOneList>
-                    </div>
-                  </div>
-                </StOneListBox>
-              );
-            })}
-          </Listt>
+          <Lists />
         </section>
       </StContent>
     </JK>
   );
 };
 
-export default Index;
-
-const StOneListBox = styled.div`
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 10px;
-  background-color: #b1c9b0;
-  /* border: 1px solid gray; */
-  padding: 15px;
-  border-radius: 20px;
-  width: 700px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const StTitleDelete = styled.div`
-  margin-right: 240px;
-  margin-left: 30px;
-`;
-
-const StOneList = styled.div`
-  max-width: 1400px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Listt = styled.div`
-  height: fit-content;
-  max-width: 1440px;
-  /* display: grid; */
-  grid-template-columns: repeat(4, 1fr);
-  flex-direction: column;
-  place-items: center;
-  gap: 10px 0px;
-  margin-top: 5px;
-`;
-
-const Unit = styled.div`
-  margin-top: 10px;
-  text-align: center;
-  font-size: 25px;
-  line-height: 20px;
-  height: 40px;
-  width: 200px;
-  color: #000000;
-`;
-
-const StNotice = styled.div`
-  background-color: #fff064;
-  text-align: center;
-  padding: 12px 16px;
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  a {
-    color: #080101;
-    text-decoration: none;
-    cursor: pointer;
-  }
-`;
-
-const StImage = styled.img`
-  border-radius: 10px 10px 10px 10px;
-  max-width: 200px;
-  margin-left: -100px;
-`;
+export default List;
 
 const StContent = styled.div`
-  margin-top: -400px;
+  margin-top: 0px;
   float: right;
   box-sizing: border-box;
   width: 728px;
