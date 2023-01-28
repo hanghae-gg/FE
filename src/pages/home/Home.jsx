@@ -22,7 +22,9 @@ const MainPage = () => {
     <StBackground>
       <ExHeader></ExHeader>
       <StNotice>
-        <a href="https://talk.op.gg/s/lol/free/5502311">항해99 OP.GG 5조 클론코딩</a>
+        <a href="https://talk.op.gg/s/lol/free/5502311">
+          항해99 OP.GG 5조 클론코딩
+        </a>
       </StNotice>
       {/* <Address /> */}
       <StImgDiv>
@@ -48,6 +50,7 @@ const MainPage = () => {
               <input
                 type="text"
                 placeholder="소환사명, ..."
+                value={nickname}
                 onChange={(event) => {
                   console.log(event.nativeEvent.data);
                   const { value } = event.target;
