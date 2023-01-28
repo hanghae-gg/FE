@@ -5,14 +5,16 @@ import ExHeader from "../../shared/ExHeader";
 import lol from "../img/lol.jpg";
 // import Address from "../list/Address";
 import axios from "axios";
+// import SearchUser from "./SearchUser";
 
 const MainPage = () => {
   const navigate = useNavigate();
   const [nickname, setNickname] = useState("");
+
   useEffect(() => {}, []);
 
-  const onPostHandler = async (nickname) => {
-    await axios.post(`${process.env.REACT_APP_LIST}/summoners/${nickname}`);
+  const onPostHandler = (nickname) => {
+    axios.post(`${process.env.REACT_APP_LIST}/records`, nickname);
     navigate(`/Summoners/${nickname}`);
   };
 
@@ -27,6 +29,7 @@ const MainPage = () => {
         <StImg src="https://opgg-static.akamaized.net/logo/20221024143822.5f982558178b4dbf96c34ae9b2706d92.png?image=q_auto,f_webp,w_auto&v=1666684602785" />
       </StImgDiv>
       <div className="container mx-auto px-1">
+        {/* <SearchUser /> */}
         <StInputBox>
           <StFormBox
             onSubmit={(e) => {
