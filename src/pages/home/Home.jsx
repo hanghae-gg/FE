@@ -9,13 +9,16 @@ import axios from "axios";
 
 const MainPage = () => {
   const navigate = useNavigate();
-  const [nickname, setNickname] = useState("");
+  const [nickname, setNickname] = useState({
+    nickname: "",
+  });
 
   useEffect(() => {}, []);
 
-  const onPostHandler = (nickname) => {
-    axios.post(`${process.env.REACT_APP_LIST}/records`, nickname);
-    navigate(`/Summoners/${nickname}`);
+  const onPostHandler = (e) => {
+    console.log(e);
+    axios.post(`${process.env.REACT_APP_LIST}/records`, e.nickname);
+    navigate(`/Summoners/${e.nickname}`);
   };
 
   return (
