@@ -5,7 +5,7 @@ import axios from "axios";
 import JK from "../../shared/JKHeader";
 
 const Lists = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [lists, setLists] = useState([]);
   // 토큰 값 로컬스토리지에서 지정가져오기
   const token = localStorage.getItem("Authorizationtest");
@@ -30,6 +30,7 @@ const Lists = () => {
           <div
             key={list.postId}
             onClick={() => {
+              console.log(list.postId);
               navigate(`/Detail/${list.postId}`);
             }}
           >

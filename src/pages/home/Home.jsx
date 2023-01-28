@@ -16,8 +16,7 @@ const MainPage = () => {
   useEffect(() => {}, []);
 
   const onPostHandler = (e) => {
-    console.log(e);
-    axios.post(`${process.env.REACT_APP_LIST}/records`, e.nickname);
+    // axios.post(`http://3.38.107.133/records`, e.nickname);
     navigate(`/Summoners/${e.nickname}`);
   };
 
