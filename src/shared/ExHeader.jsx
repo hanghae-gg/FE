@@ -134,6 +134,7 @@ const StNavigationContontainer = styled.div`
 `;
 // margin-right: 120px!important;
 const StLogoImg = styled.img`
+  margin-left: 10px;
   width: 65px;
   height: 16px;
 `;

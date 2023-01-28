@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 import lol from "../img/lol.jpg";
-// import Address from "../list/Address";
+import Address from "../list/Address";
 import axios from "axios";
 
 const MainPage = () => {
@@ -45,10 +45,11 @@ const MainPage = () => {
               <input
                 type="text"
                 placeholder="소환사명, ..."
+                value={nickname}
                 onChange={(event) => {
+                  console.log(event.nativeEvent.data);
                   const { value } = event.target;
                   setNickname({
-                    ...nickname,
                     nickname: value,
                   });
                 }}
