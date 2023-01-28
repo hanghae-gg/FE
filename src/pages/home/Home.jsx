@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 import lol from "../img/lol.jpg";
-import Address from "../list/Address";
+// import Address from "../list/Address";
+import axios from "axios";
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const [nickname, setNickname] = useState("");
   useEffect(() => {}, []);
+
+  const onPostHandler = async (nickname) => {
+    await axios.post(`${process.env.REACT_APP_LIST}/summoners/${nickname}`);
+    navigate(`/Summoners/${nickname}`);
+  };
 
   return (
     <StBackground>
@@ -21,7 +28,12 @@ const MainPage = () => {
       </StImgDiv>
       <div className="container mx-auto px-1">
         <StInputBox>
-          <StFormBox>
+          <StFormBox
+            onSubmit={(e) => {
+              e.preventDefault();
+              onPostHandler(nickname);
+            }}
+          >
             <StSelectBox>
               <StSmall>Region</StSmall>
               <StSelect>
@@ -30,7 +42,17 @@ const MainPage = () => {
             </StSelectBox>
             <StInputDiv>
               <label>Search</label>
-              <input type="text" placeholder="소환사명, 소환사명, ..." />
+              <input
+                type="text"
+                placeholder="소환사명, ..."
+                onChange={(event) => {
+                  const { value } = event.target;
+                  setNickname({
+                    ...nickname,
+                    nickname: value,
+                  });
+                }}
+              />
             </StInputDiv>
             <StSubmitButton>.GG</StSubmitButton>
           </StFormBox>
