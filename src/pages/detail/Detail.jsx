@@ -7,6 +7,7 @@ import JK from "../../shared/JKHeader";
 
 const Detail = () => {
   const { id } = useParams();
+
   const navigate = useNavigate();
   const [mylist, setMylist] = useState([]);
   //수정 모드 설정
@@ -62,7 +63,10 @@ const Detail = () => {
             <StDetailBox>
               <StPicwithDesc>
                 <StListPic>
-                  <StImage src={mylist.image} style={{ width: "80%", height: "80%" }} />
+                  <StImage
+                    src={mylist.image}
+                    style={{ width: "80%", height: "80%" }}
+                  />
                 </StListPic>
                 <StDecsBox>
                   <StDescDIv>
@@ -108,7 +112,10 @@ const Detail = () => {
                     setIsEditMode(false);
                   }}
                 >
-                  <StImage src={mylist.image} style={{ width: "80%", height: "80%" }} />
+                  <StImage
+                    src={mylist.image}
+                    style={{ width: "80%", height: "80%" }}
+                  />
                   <h3>게시글 수정하기 </h3>
                   제목 :
                   <StInput

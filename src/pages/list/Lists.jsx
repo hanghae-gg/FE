@@ -18,7 +18,7 @@ const Lists = () => {
     });
     setLists(data);
   };
-
+  console.log(lists);
   useEffect(() => {
     fetchList();
   }, []);
@@ -39,7 +39,10 @@ const Lists = () => {
                 <StTitleDelete>
                   <Unit>{list.title}</Unit>
                 </StTitleDelete>
-                <StImage src={list.image} style={{ width: "20%", height: "20%" }} />
+                <StImage
+                  src={list.image}
+                  style={{ width: "20%", height: "20%" }}
+                />
               </StOneList>
             </div>
           </div>
