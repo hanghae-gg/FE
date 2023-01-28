@@ -48,7 +48,6 @@ const MainPage = () => {
               <input
                 type="text"
                 placeholder="소환사명, ..."
-                value={nickname}
                 onChange={(event) => {
                   console.log(event.nativeEvent.data);
                   const { value } = event.target;
