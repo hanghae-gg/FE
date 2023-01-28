@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import JK from "../../shared/JKHeader";
 import Lists from "./Lists";
-// import Address from "./Address";
+import Address from "./Address";
 
 const List = () => {
   const navigate = useNavigate();
@@ -26,7 +26,10 @@ const List = () => {
                   }}
                   className="write-link"
                 >
-                  <img src="https://talk.op.gg/images/icon-write@2x.png" alt="글쓰기" />
+                  <img
+                    src="https://talk.op.gg/images/icon-write@2x.png"
+                    alt="글쓰기"
+                  />
                 </div>
               </li>
             </ul>
@@ -41,7 +44,10 @@ const List = () => {
               </li>
               <li className="sub-link__item--active">
                 <div>
-                  <img src="https://talk.op.gg/images/icon-new-on@2x.png" alt="" />
+                  <img
+                    src="https://talk.op.gg/images/icon-new-on@2x.png"
+                    alt=""
+                  />
                   <span>최신</span>
                 </div>
               </li>
@@ -56,7 +62,10 @@ const List = () => {
               </li>
               <li className="sub-link__item">
                 <div>
-                  <img src="https://talk.op.gg/images/icon-boost@2x.png" alt="" />
+                  <img
+                    src="https://talk.op.gg/images/icon-boost@2x.png"
+                    alt=""
+                  />
                   <span>10추</span>
                 </div>
               </li>
@@ -76,7 +85,10 @@ const List = () => {
                   placeholder="검색"
                 />
                 <button className="sub-header-search__button">
-                  <img src="https://talk.op.gg/images/icon-search@2x.png" alt=""></img>
+                  <img
+                    src="https://talk.op.gg/images/icon-search@2x.png"
+                    alt=""
+                  ></img>
                 </button>
               </form>
             </div>
@@ -100,9 +112,10 @@ const StContent = styled.div`
   width: 728px;
   .sub-header {
     position: relative;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+    height: 120px;
   }
   .sub-header-info {
     z-index: 1000;
@@ -227,7 +240,7 @@ const StContent = styled.div`
     right: 0;
     bottom: 0;
     margin-right: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 18px;
   }
   .sub-header-search__select {
     float: left;
