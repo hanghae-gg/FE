@@ -59,23 +59,9 @@ const Add = () => {
   };
 
   return (
-    <>
+    <StDiv>
       <JK>
-        <div
-          className="
-        box-decoration-clone 
-        bg-gradient-to-r 
-        from-indigo-600 
-        to-pink-500 
-        text-black px-2 
-        box-content h-450 w-320 p-4 
-        border-4
-        rounded-3xl
-        flex 
-        flex-col 
-        justify-center
-        "
-        >
+        <div>
           <StAddCard>
             <form
               onSubmit={(e) => {
@@ -84,7 +70,7 @@ const Add = () => {
               }}
             >
               <StInputBox>
-                <br />
+                <h1 className="py-4 mb-2">글쓰기</h1>
                 <StInput
                   fullwidth
                   type="text"
@@ -136,7 +122,6 @@ const Add = () => {
                 />
               </StInputBox>
               <StButtons>
-                <StButton type="submit">저장하기</StButton>
                 <StButton
                   onClick={() => {
                     navigate(-1);
@@ -144,12 +129,13 @@ const Add = () => {
                 >
                   뒤로가기
                 </StButton>
-              </StButtons>{" "}
+                <StButton type="submit">저장하기</StButton>
+              </StButtons>
             </form>
           </StAddCard>
         </div>
       </JK>
-    </>
+    </StDiv>
   );
 };
 
@@ -160,27 +146,30 @@ export default Add;
 // textarea 크기고정(width 100%)및 css
 const Textarea = styled.textarea`
   margin-top: 10px;
-  width: 200px;
-  border: 1px solid #eee;
-  padding: 5px;
+  border: 1px solid gray;
+  height: 400px;
+  padding: 8px;
   font-size: 14px;
-  border-radius: 20px;
-  width: 300px;
+`;
+const StDiv = styled.div`
+  background-color: #ebeef1;
+  height: 100vw;
 `;
 const StAddCard = styled.div`
-  padding: 50px 0 30px 0;
+  padding: 20px 0 30px 0;
   display: flex;
+  position: relative;
   justify-content: center;
   flex-direction: row;
-  background-color: #dadada;
-  width: 400px;
-  height: fit-content;
-  border-radius: 60px;
+  background-color: white;
+  width: 700px;
+  height: 800px;
+  margin-top: -15%;
 `;
 
 const StButton = styled.button`
-  margin: 10px auto auto auto;
-  background-color: black;
+  margin: 40px auto auto auto;
+  background-color: #46cfa7;
   text-align: center;
   width: 90px;
   height: 40px;
@@ -188,7 +177,7 @@ const StButton = styled.button`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 10px;
   border: 1px solid black;
   font-weight: bold;
   font-size: 13px;
@@ -201,24 +190,22 @@ const StButtons = styled.div`
 `;
 
 const StInputBox = styled.div`
-  margin-top: -50px;
-  width: 400px;
-  text-align: center;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
 `;
 const StInput = styled.input`
-  width: 300px;
-  height: 30px;
-  border-radius: 15px;
-  border: none;
-  padding: 5px;
-  margin-top: 5px;
+  height: 40px;
+  border: 3px;
+  padding: 8px;
+  border: 1px solid gray;
 `;
 
 const StInputJpg = styled.input`
-  width: 300px;
-  height: 30px;
-  border-radius: 15px;
-  border: none;
-  padding: 5px;
-  margin-top: 5px;
+  background-color: white;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid gray;
+  margin-bottom: 20px;
+  margin-top: 30px;
 `;
