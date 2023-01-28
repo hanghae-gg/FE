@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 import lol from "../img/lol.jpg";
+import Address from "../list/Address";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const MainPage = () => {
       <StNotice>
         <a href="https://talk.op.gg/s/lol/free/5502311">항해99 OP.GG 5조 클론코딩</a>
       </StNotice>
+      {/* <Address /> */}
       <StImgDiv>
         <StImg src="https://opgg-static.akamaized.net/logo/20221024143822.5f982558178b4dbf96c34ae9b2706d92.png?image=q_auto,f_webp,w_auto&v=1666684602785" />
       </StImgDiv>
