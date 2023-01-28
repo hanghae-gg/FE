@@ -6,9 +6,6 @@ import axios from "axios";
 const token = localStorage.getItem("Authorizationtest");
 
 const Comment = ({ comment }) => {
-  // console.log("commentId :", commentId);
-  //   console.log("comment :", comment.commentId);
-  //   console.log("boardId :", boardId);
   const [isCommentEditMode, setIsCommentEditMode] = useState(false);
   const [editcomment, setEditcomment] = useState({
     comment: "",
@@ -17,11 +14,14 @@ const Comment = ({ comment }) => {
   const onDeleteComment = async () => {
     const result = window.confirm("삭제하시겠습니까?");
     if (result) {
-      await axios.delete(`${process.env.REACT_APP_LIST}/comment/${comment.commentId}`, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      await axios.delete(
+        `${process.env.REACT_APP_LIST}/comment/${comment.commentId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
       return window.location.reload();
     } else {
       return;
@@ -29,11 +29,15 @@ const Comment = ({ comment }) => {
   };
 
   const onEditComment = async (e) => {
-    await axios.patch(`${process.env.REACT_APP_LIST}/comment/${comment.commentId}`, e, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    await axios.patch(
+      `${process.env.REACT_APP_LIST}/comment/${comment.commentId}`,
+      e,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
   };
   return (
     <>
@@ -74,7 +78,9 @@ const Comment = ({ comment }) => {
               });
             }}
           />
-          <StEditDoneButton onClick={() => onEditComment(editcomment)}>수정 완료</StEditDoneButton>
+          <StEditDoneButton onClick={() => onEditComment(editcomment)}>
+            수정 완료
+          </StEditDoneButton>
         </StEditCommentForm>
       )}
     </>

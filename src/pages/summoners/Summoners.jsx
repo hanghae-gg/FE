@@ -4,15 +4,14 @@ import ExHeader from "../../shared/ExHeader";
 import styled from "styled-components";
 import axios from "axios";
 
-const { id } = useParams;
-const { name } = "불갈기";
-
 const Summoners = () => {
-  const [datas, setData] = useState([]);
+  const { id } = useParams();
+  const [datas, setDatas] = useState([]);
 
   const fetchData = async () => {
-    const { data } = await axios.post(`http://3.38.107.133/records`, name);
-    setData(data);
+    console.log(typeof id);
+    const { data } = await axios.post(`http://3.38.107.133/records`, id);
+    setDatas(data);
   };
 
   useEffect(() => {
@@ -30,8 +29,8 @@ const Summoners = () => {
           />
         </div>
         <UserNRefresh>
-          <UserName>유저이름</UserName>
-          <RefreshData>전적갱신</RefreshData>
+          <UserName>유저이름 {datas.nickname}</UserName>
+          <RefreshData>전적갱신{datas.win}</RefreshData>
         </UserNRefresh>
       </StUserGroup>
     </StBackground>
@@ -69,11 +68,11 @@ const UserName = styled.div`
 `;
 
 const RefreshData = styled.button`
-  width: 100px;
+  width: 90px;
   height: 40px;
   border-radius: 5px 5px 5px 5px;
   background-color: #5383e8;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 25px;
   color: white;
 `;

@@ -5,7 +5,7 @@ import axios from "axios";
 import JK from "../../shared/JKHeader";
 
 const Lists = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [lists, setLists] = useState([]);
   // 토큰 값 로컬스토리지에서 지정가져오기
   const token = localStorage.getItem("Authorizationtest");
@@ -18,7 +18,7 @@ const Lists = () => {
     });
     setLists(data);
   };
-
+  console.log(lists);
   useEffect(() => {
     fetchList();
   }, []);
@@ -38,7 +38,10 @@ const Lists = () => {
                 <StTitleDelete>
                   <Unit>{list.title}</Unit>
                 </StTitleDelete>
-                <StImage src={list.image} style={{ width: "20%", height: "20%" }} />
+                <StImage
+                  src={list.image}
+                  style={{ width: "20%", height: "20%" }}
+                />
               </StOneList>
             </div>
           </div>
