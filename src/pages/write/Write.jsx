@@ -14,7 +14,7 @@ const Add = () => {
   });
 
   // 토큰 값 로컬스토리지에서 지정가져오기
-  const token = localStorage.getItem("Authorizationtest");
+  const token = localStorage.getItem("accessToken");
 
   //이미지 미리보기와 파일첨부 기능
   const [imgBase64, setImgBase64] = useState([]); // 파일 base64
@@ -78,11 +78,11 @@ const Add = () => {
                     const { value } = event.target;
                     setLists({
                       ...lists,
-                      listName: value,
+                      title: value,
                     });
                   }}
                   placeholder="제목 : "
-                  value={lists.listName}
+                  value={lists.title}
                   name="listName"
                   required
                 />
@@ -111,10 +111,10 @@ const Add = () => {
                     const { value } = event.target;
                     setLists({
                       ...lists,
-                      text: value,
+                      content: value,
                     });
                   }}
-                  value={lists.text}
+                  value={lists.content}
                   rows="10"
                   maxLength={200}
                   placeholder="게시글 설명 : "

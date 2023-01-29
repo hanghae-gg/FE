@@ -18,7 +18,7 @@ export const __postUser = createAsyncThunk(
   "signup",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post("/user", payload, {
+      const { data } = await axiosInstance.post("/users/signup", payload, {
         withCredentials: true,
       });
       return thunkAPI.fulfillWithValue(data);
@@ -54,14 +54,15 @@ export const __postLogin = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await axiosInstance
-        .post("/userList", payload, {
+        .post("/users/login", payload, {
           withCredentials: true,
         })
 
         .then((res) => {
+          const accessToken = res.headers.authorization;
           console.log(res.data.status);
-          localStorage.setItem("access_token", res.headers.access_token);
-          console.log(res);
+          localStorage.setItem("accessToken", accessToken);
+          console.log(res.headers);
           console.log(payload);
           return res;
         });
@@ -103,7 +104,6 @@ const userList = createSlice({
     [__postLogin.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.isLogin = true;
-      localStorage.setItem("userinfo", JSON.stringify(action.payload));
     },
     [__logoutUser.pending]: (state) => {
       //보내는 도중, 진행중

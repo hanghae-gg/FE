@@ -8,9 +8,10 @@ const Lists = () => {
   const navigate = useNavigate();
   const [lists, setLists] = useState([]);
   // 토큰 값 로컬스토리지에서 지정가져오기
-  const token = localStorage.getItem("Authorizationtest");
+  const token = localStorage.getItem("accessToken");
 
   const fetchList = async () => {
+    console.log(process.env.REACT_APP_LIST);
     const { data } = await axios.get(`${process.env.REACT_APP_LIST}/posts`, {
       headers: {
         Authorization: token,

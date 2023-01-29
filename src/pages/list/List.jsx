@@ -7,7 +7,7 @@ import Address from "./Address";
 
 const List = () => {
   const navigate = useNavigate();
-  const token = localStorage.getItem("Authorizationtest");
+  const token = localStorage.getItem("accessToken");
 
   return (
     <JK>
@@ -22,7 +22,6 @@ const List = () => {
                 <div
                   onClick={() => {
                     token ? navigate("/write") : alert("로그인을 해주세요");
-                    navigate("/Login");
                   }}
                   className="write-link"
                 >

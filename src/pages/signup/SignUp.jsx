@@ -11,7 +11,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const initialState = {
-    userName: "",
+    username: "",
     email: "",
     password: "",
     check_password: "",
@@ -21,7 +21,7 @@ const SignUp = () => {
   const [user, setUser] = useState(initialState);
 
   //유저 스테이트 구조분해 할당
-  const { email, password, userName, check_password } = user;
+  const { email, password, username, check_password } = user;
 
   //상태관리 위해 초기값 세팅
   const [usernameInput, setusernameInput] = useState("");
@@ -39,7 +39,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
 
-    if (name === "userName")
+    if (name === "username")
       !regusername.test(value)
         ? setusernameInput("소문자 + 숫자 + 언더바/하이픈 허용 4~20자리입니다.")
         : setusernameInput("");
@@ -66,7 +66,7 @@ const SignUp = () => {
   // 회원가입 POST요청 및 공백 존재 시 경고창 생성
   const onSubmitUserHandler = (e) => {
     e.preventDefault();
-    if (userName.trim() === "" || password.trim() === "") {
+    if (username.trim() === "" || password.trim() === "") {
       return alert("아이디랑 비밀번호를 입력해주세요!");
     }
     if (password !== check_password) {
@@ -74,7 +74,7 @@ const SignUp = () => {
     }
     dispatch(
       __postUser({
-        userName,
+        username,
         password,
         email,
       })
@@ -102,8 +102,8 @@ const SignUp = () => {
               <StPwBox>
                 <input
                   type="text"
-                  name="userName"
-                  value={userName}
+                  name="username"
+                  value={username}
                   placeholder="아이디를 입력해주세요"
                   onChange={onChangeUserHandler}
                 ></input>
