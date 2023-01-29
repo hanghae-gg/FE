@@ -9,7 +9,7 @@ const Login = () => {
   const dispatch = useDispatch();
   //초기값
   const initialState = {
-    userName: "",
+    username: "",
     password: "",
   };
 
@@ -18,6 +18,7 @@ const Login = () => {
 
   //로그인 체크 전역변수 불러오기
   const loginCheck = useSelector((state) => state.userList.isLogin);
+  console.log(loginCheck);
 
   //로그인에 필요한 인풋값 유저스테이트에 저장
   const onChangeLoginHandler = (e) => {
@@ -27,7 +28,7 @@ const Login = () => {
   //로그인 POST 요청
   const onSubmitLoginHandler = (e) => {
     e.preventDefault();
-    if (user.userName.trim() === "" || user.password.trim() === "") {
+    if (user.username.trim() === "" || user.password.trim() === "") {
       alert("체크피료해");
     }
     dispatch(__postLogin(user));
@@ -73,7 +74,7 @@ const Login = () => {
                 <StId
                   required //아무것도 입력하지 않으면 안되게
                   type="text"
-                  name="userName"
+                  name="username"
                   placeholder="아이디"
                   onChange={onChangeLoginHandler}
                 ></StId>
