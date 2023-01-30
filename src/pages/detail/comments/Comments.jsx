@@ -7,14 +7,16 @@ import AddComent from "./AddCommnet";
 
 const Comments = () => {
   const [isShow, setisShow] = useState(false);
-  const [mycomment, setMycomment] = useState([]);
+  const [mycomment, setMycomment] = useState();
   const { id } = useParams();
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_LIST}/comments/${id}`).then((res) => {
-      setMycomment(res.data);
+      setMycomment(res.data.comments);
     });
   }, [id]);
+
+  console.log(mycomment);
 
   return (
     <>
@@ -25,14 +27,20 @@ const Comments = () => {
               setisShow((pre) => !pre);
             }}
           >
-            <StUpDown> {isShow ? "  눌러서 댓글내리기 👇  " : "  눌러서 댓글보기 ☝🏻 "}</StUpDown>
+            <StUpDown>
+              {isShow ? "  눌러서 댓글내리기 👇  " : "  눌러서 댓글보기 ☝🏻 "}
+            </StUpDown>
           </StToggleContainer>
           {isShow && (
             <>
               <AddComent />
               <StCommentList>
                 {mycomment?.map((comment) => (
-                  <Comment key={comment.commentId} boardId={id} comment={comment} />
+                  <Comment
+                    key={comment.commentId}
+                    boardId={id}
+                    comment={comment}
+                  />
                 ))}
               </StCommentList>
             </>
