@@ -15,6 +15,8 @@ const Add = () => {
     content: "",
     imageUrl: "",
   });
+
+  // json 식을 JSON.stringify 바꿔주기 위한 코드
   const postRequestDto = {
     title: lists.title,
     content: lists.content,
