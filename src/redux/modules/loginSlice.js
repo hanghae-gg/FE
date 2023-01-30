@@ -60,10 +60,7 @@ export const __postLogin = createAsyncThunk(
 
         .then((res) => {
           const accessToken = res.headers.authorization;
-          console.log(res.data.status);
           localStorage.setItem("accessToken", accessToken);
-          console.log(res.headers);
-          console.log(payload);
           return res;
         });
 
@@ -72,6 +69,24 @@ export const __postLogin = createAsyncThunk(
       console.log(error);
       if (400 < error.status < 500) {
         alert(error.response.data.message);
+      }
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const __checkId = createAsyncThunk(
+  "account/checkId",
+  async (payload, thunkAPI) => {
+    try {
+      const { data } = await axiosInstance.post("/users/idcheck", payload, {
+        withCredentials: true,
+      });
+      return thunkAPI.fulfillWithValue(data);
+    } catch (error) {
+      console.log(error);
+      if (400 < error.status < 500) {
+        alert("중복된 아이디입니다.");
       }
       return thunkAPI.rejectWithValue(error);
     }
@@ -98,6 +113,23 @@ const userList = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     }, //post
+
+    [__checkId.pending]: (state) => {
+      //보내는 도중, 진행중
+      state.isLoading = true;
+    },
+
+    [__checkId.fulfilled]: (state, action) => {
+      //연결후
+      state.isLoading = false;
+
+      alert("사용가능 아이디입니다!");
+    },
+    [__checkId.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    }, //post
+
     [__postLogin.pending]: (state) => {
       state.isLoading = true;
     },

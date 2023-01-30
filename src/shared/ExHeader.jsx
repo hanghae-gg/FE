@@ -1,18 +1,15 @@
-// import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import { useRecoilState } from "recoil";
 import styled from "styled-components";
-// import { logoutState } from "../redux/modules/userSlice";
-// import { Login } from "../store/store";
 
 const MainHeader = () => {
   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
-  const token = localStorage.getItem("Access_Token");
+
+  const token = localStorage.getItem("accessToken");
+  console.log(token);
 
   //   const [isLogin, setIsLogin] = useRecoilState(Login);
   const LogoutButton = () => {
-    localStorage.removeItem("Access_Token");
+    localStorage.removeItem("accessToken");
 
     // dispatch(logoutState());
     // setIsLogin(false);
@@ -38,18 +35,9 @@ const MainHeader = () => {
           </StTolkpggContainer>
           <StNavigationListContainer>
             {token ? (
-              <StHeaderLogoutToggle>
-                <StDropdown>
-                  <StDropDownList>
-                    <StDropDownListItem>
-                      <StUserSetButton>계정 설정</StUserSetButton>
-                      <StUserSetButton onClick={LogoutButton}>
-                        로그아웃
-                      </StUserSetButton>
-                    </StDropDownListItem>
-                  </StDropDownList>
-                </StDropdown>
-              </StHeaderLogoutToggle>
+              <HeaderLoginButton onClick={LogoutButton}>
+                로그아웃
+              </HeaderLoginButton>
             ) : (
               <HeaderLoginButton onClick={() => navigate("/login")}>
                 로그인
@@ -266,7 +254,6 @@ const HeaderLoginButton = styled.button`
   vertical-align: top;
   text-align: center;
   line-height: 15px;
-  padding: 8px 0 7px;
   float: right;
   color: white;
   border: 0px;
@@ -275,80 +262,4 @@ const HeaderLoginButton = styled.button`
   height: 26px;
   background-color: #5383e8;
   cursor: pointer;
-`;
-const StHeaderLogoutToggle = styled.button`
-  margin-top: 4px;
-  float: right;
-  background: none;
-  display: flex;
-  position: relative;
-  cursor: pointer;
-  margin: 0;
-  font-size: 14px;
-  outline: 0;
-  appearance: auto;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  line-height: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  text-align: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-  border: 0px;
-  flex-direction: column;
-`;
-const StHeaderLogoutSpan = styled.span`
-  font-size: 12px;
-  color: #c3cbd1;
-  position: relative;
-  min-width: 120px;
-  text-align: right;
-  vertical-align: middle;
-  float: right;
-`;
-const StLogoutImg = styled.img`
-  padding: 4px 0 4px 4px;
-  vertical-align: middle;
-`;
-const StDropdown = styled.div`
-  justify-content: left;
-  text-align: left;
-  display: none;
-  top: 40px;
-  right: 5px;
-  position: absolute;
-  width: 160px;
-  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 20%);
-  background-color: #fff;
-  ${StHeaderLogoutToggle}:hover & {
-    display: block;
-  }
-`;
-const StDropDownList = styled.ul`
-  list-style: none;
-  display: block;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 15px;
-`;
-const StDropDownListItem = styled.li`
-  display: flex;
-  margin: 0;
-  border: 0;
-  vertical-align: baseline;
-  flex-direction: column;
-  justify-content: left;
-`;
-const StUserSetButton = styled.a`
-  box-sizing: border-box;
-  padding: 0;
-  font-size: 14px;
-  color: #1e2022;
-  border: 0;
-  border-radius: 0;
-  width: 100%;
-  padding: 10px 0;
 `;

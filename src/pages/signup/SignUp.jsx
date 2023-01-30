@@ -5,6 +5,7 @@ import React from "react";
 import styled from "styled-components";
 import { __postUser } from "../../redux/modules/loginSlice";
 import { useDispatch } from "react-redux";
+import { __checkId } from "../../redux/modules/loginSlice";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -81,6 +82,19 @@ const SignUp = () => {
     );
     navigate("/");
   };
+  const onSubmitUserCheckHandler = (e) => {
+    e.preventDefault();
+    if (username.trim() === "") {
+      return alert("아이디를 입력해주세요!");
+    }
+    dispatch(
+      __checkId({
+        username,
+        password,
+        email,
+      })
+    );
+  };
 
   return (
     <StLayOut>
@@ -93,7 +107,7 @@ const SignUp = () => {
                 src="https://member.op.gg/img_opgglogo.1924961d.svg"
               ></StImg>
             </h1>
-            <form onSubmit={onSubmitUserHandler}>
+            <form>
               <h2 className="signUpTitle">기본정보입력</h2>
               <div className="signUpSub">
                 회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기 전까지
@@ -111,6 +125,7 @@ const SignUp = () => {
               <p id="help-user" className="help">
                 {usernameInput}
               </p>
+              <buttom onClick={onSubmitUserCheckHandler}>중복체크</buttom>
               <StPwBox>
                 <input
                   type="email"
@@ -148,7 +163,12 @@ const SignUp = () => {
                 {checkpassInput}
               </p>
               <StSignUpButtonBox>
-                <button className="signUpDisabledBtn">회원가입</button>
+                <button
+                  onClick={onSubmitUserHandler}
+                  className="signUpDisabledBtn"
+                >
+                  회원가입
+                </button>
                 <button
                   className="signUpBtn"
                   onClick={() => navigate("/Login")}
