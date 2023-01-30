@@ -18,7 +18,7 @@ const Detail = () => {
   });
 
   // 토큰 값 로컬스토리지에서 지정가져오기
-  const token = localStorage.getItem("Authorizationtest");
+  const token = localStorage.getItem("accessToken");
 
   // 게시물 수정하기
   const onEditThisList = (e) => {
@@ -54,7 +54,7 @@ const Detail = () => {
         setMylist(appData.data);
       }, []);
   }, [id, token]);
-
+  console.log(updatedList);
   return (
     <>
       <JK>
@@ -64,7 +64,7 @@ const Detail = () => {
               <StPicwithDesc>
                 <StListPic>
                   <StImage
-                    src={mylist.image}
+                    src={mylist.imageUrl}
                     style={{ width: "80%", height: "80%" }}
                   />
                 </StListPic>
@@ -113,7 +113,7 @@ const Detail = () => {
                   }}
                 >
                   <StImage
-                    src={mylist.image}
+                    src={mylist.imageUrl}
                     style={{ width: "80%", height: "80%" }}
                   />
                   <h3>게시글 수정하기 </h3>
@@ -125,12 +125,12 @@ const Detail = () => {
                     onChange={(ev) => {
                       setUpdatedList({
                         ...updatedList,
-                        listName: ev.target.value,
+                        title: ev.target.value,
                       });
                     }}
                   />
                   <br />
-                  설명 :{" "}
+                  설명 :
                   <StDescInput
                     required
                     type="text"
@@ -138,7 +138,7 @@ const Detail = () => {
                     onChange={(ev) => {
                       setUpdatedList({
                         ...updatedList,
-                        text: ev.target.value,
+                        content: ev.target.value,
                       });
                     }}
                   />

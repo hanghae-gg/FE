@@ -41,7 +41,7 @@ const Lists = () => {
                   <Unit>{list.title}</Unit>
                 </StTitleDelete>
                 <StImage
-                  src={list.image}
+                  src={list.imageUrl}
                   style={{ width: "20%", height: "20%" }}
                 />
               </StOneList>

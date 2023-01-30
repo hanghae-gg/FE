@@ -3,26 +3,25 @@ import styled from "styled-components";
 import axios from "axios";
 
 // 토큰 값 로컬스토리지에서 지정가져오기
-const token = localStorage.getItem("Authorizationtest");
+const token = localStorage.getItem("accessToken");
 
 const Comment = ({ comment }) => {
   const [isCommentEditMode, setIsCommentEditMode] = useState(false);
   const [editcomment, setEditcomment] = useState({
     comment: "",
   });
-
+  console.log(comment);
   const onDeleteComment = async () => {
     const result = window.confirm("삭제하시겠습니까?");
     if (result) {
       await axios.delete(
-        `${process.env.REACT_APP_LIST}/comment/${comment.commentId}`,
+        `${process.env.REACT_APP_LIST}/comments/${comment.id}`,
         {
           headers: {
             Authorization: token,
           },
         }
       );
-      return window.location.reload();
     } else {
       return;
     }
@@ -30,7 +29,7 @@ const Comment = ({ comment }) => {
 
   const onEditComment = async (e) => {
     await axios.patch(
-      `${process.env.REACT_APP_LIST}/comment/${comment.commentId}`,
+      `${process.env.REACT_APP_LIST}/comments/${comment.id}`,
       e,
       {
         headers: {
@@ -39,6 +38,8 @@ const Comment = ({ comment }) => {
       }
     );
   };
+
+  console.log(comment.id);
   return (
     <>
       {!isCommentEditMode ? (

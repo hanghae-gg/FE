@@ -9,9 +9,9 @@ const AddCommentForm = () => {
   const [comment, setComment] = useState({
     comment: "",
   });
-
+  console.log(id);
   // 토큰 값 로컬스토리지에서 지정가져오기
-  const token = localStorage.getItem("Authorizationtest");
+  const token = localStorage.getItem("accessToken");
 
   // const submitCommentHandler = (comment) => {
   //   fetch(`${process.env.REACT_APP_CAT}/board/${id}`, {

@@ -6,12 +6,19 @@ import JK from "../../shared/JKHeader";
 
 const Add = () => {
   const navigate = useNavigate();
+  /*  const [imageUrl, setimageUrl] = useState({
+    imageUrl: "",
+  });
+ */
   const [lists, setLists] = useState({
     title: "",
     content: "",
-    image: "",
-    // visit: 0,
+    imageUrl: "",
   });
+  const postRequestDto = {
+    title: lists.title,
+    content: lists.content,
+  };
 
   // 토큰 값 로컬스토리지에서 지정가져오기
   const token = localStorage.getItem("accessToken");
@@ -39,12 +46,13 @@ const Add = () => {
   };
   //그림파일 폼데이터로 보내기
   const onWriteHandler = async (lists) => {
-    const fd = new FormData();
-    Object.values(imgFile).forEach((file) => fd.append("file", file));
-    fd.append("title", lists.title);
-    fd.append("content", lists.content);
+    const formData = new FormData();
+    const json = JSON.stringify(postRequestDto);
+    const blob = new Blob([json], { type: "application/json" });
+    formData.append("postRequestDto", blob);
+    Object.values(imgFile).forEach((file) => formData.append("imageUrl", file));
     await axios
-      .post(`${process.env.REACT_APP_LIST}/posts`, fd, {
+      .post(`${process.env.REACT_APP_LIST}/posts`, formData, {
         headers: {
           Authorization: token,
           "Content-Type": "multipart/form-data",
@@ -58,7 +66,7 @@ const Add = () => {
       .catch((error) => {});
     // navigate("/List");
   };
-
+  console.log(lists);
   return (
     <StDiv>
       <JK>
