@@ -7,6 +7,7 @@ import axios from "axios";
 const Summoners = () => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
+  const [win, setWin] = useState(true);
 
   const fetchData = async () => {
     axios
@@ -29,44 +30,58 @@ const Summoners = () => {
     <>
       <StBackground>
         <ExHeader />
-        <StUserGroup>
-          <div>
-            <Stimg
-              src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon507.jpg?image=q_auto,f_webp,w_auto&v=1674817419282
-          "
-            />
-          </div>
-          <UserNRefresh>
-            <UserName>유저이름 {datas.nickname}</UserName>
-            <RefreshData>전적갱신{datas.win}</RefreshData>
-          </UserNRefresh>
-        </StUserGroup>
-        <StHistories>
-          <StOneListBox>
+        <StSummoners>
+          <StUserGroup>
             <div>
-              <StOneList>
-                <StTitleDelete>
-                  <Unit>에이</Unit>
-                </StTitleDelete>
-                <StImage style={{ width: "20%", height: "20%" }} />
-              </StOneList>
+              <Stimg
+                src="https://opgg-static.akamaized.net/images/profile_icons/profileIcon507.jpg?image=q_auto,f_webp,w_auto&v=1674817419282
+          "
+              />
             </div>
-          </StOneListBox>
-          <Listt>
+            <UserNRefresh>
+              <UserName>유저이름 {datas.nickname}</UserName>
+              <RefreshData>전적갱신{datas.win}</RefreshData>
+            </UserNRefresh>
+          </StUserGroup>
+          <StHistories>
+            <StOneListBox>
+              <div>
+                <StOneList>
+                  <div>승리</div>
+                  <div>챔피언 이름</div>
+                  <Stchamp src="https://opgg-static.akamaized.net/meta/images/lol/champion/Evelynn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225" />
+                  <Unit> 10 / 2 / 4</Unit>
+                  <Unit> 평점</Unit>
+                  <StImage style={{ width: "20%", height: "20%" }} />
+                </StOneList>
+              </div>
+            </StOneListBox>
+            <StOneListBox>
+              <div>
+                <StOneList>
+                  <div>패배</div>
+                  <div>챔피언 이름</div>
+                  <Stchamp src="https://opgg-static.akamaized.net/meta/images/lol/champion/Kayn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225" />
+                  <Unit> 1 / 5 / 4</Unit>
+                  <Unit> 평점</Unit>
+                  <StImage style={{ width: "20%", height: "20%" }} />
+                </StOneList>
+              </div>
+            </StOneListBox>
+            {/* <Listt>
             {datas?.map((data) => (
               <StOneListBox key={data.postId}>
                 <div>
                   <StOneList>
-                    <StTitleDelete>
                       <Unit>{data.title}</Unit>
-                    </StTitleDelete>
                     <StImage src={data.image} style={{ width: "20%", height: "20%" }} />
                   </StOneList>
                 </div>
               </StOneListBox>
             ))}
-          </Listt>
-        </StHistories>
+          </Listt> */}
+          </StHistories>
+        </StSummoners>
       </StBackground>
     </>
   );
@@ -78,16 +93,26 @@ const StBackground = styled.div`
   height: 100vh;
 `;
 
+const StSummoners = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const StUserGroup = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 50px;
   margin-left: 20px;
-  height: 80vh;
+  height: 200px;
 `;
 
 const Stimg = styled.img`
   border-radius: 10px 10px 10px 10px;
+`;
+const Stchamp = styled.img`
+  border-radius: 30px 30px 30px 30px;
+  height: 10%;
+  width: 10%;
 `;
 
 const UserNRefresh = styled.div`
@@ -112,7 +137,11 @@ const RefreshData = styled.button`
   color: white;
 `;
 
-const StHistories = styled.div``;
+const StHistories = styled.div`
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+`;
 
 const Listt = styled.div`
   height: fit-content;
@@ -133,16 +162,11 @@ const StOneListBox = styled.div`
   /* border: 1px solid gray; */
   padding: 15px;
   border-radius: 20px;
-  width: 700px;
-  height: 100px;
+  width: 70%;
+  height: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const StTitleDelete = styled.div`
-  margin-right: 240px;
-  margin-left: 30px;
 `;
 
 const StOneList = styled.div`

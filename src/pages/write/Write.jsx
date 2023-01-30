@@ -51,11 +51,12 @@ const Add = () => {
         },
       })
       .then((response) => {
+        console.log(response);
         if (response.data) {
         }
       })
       .catch((error) => {});
-    navigate("/List");
+    // navigate("/List");
   };
 
   return (
@@ -83,7 +84,7 @@ const Add = () => {
                   }}
                   placeholder="제목 : "
                   value={lists.title}
-                  name="listName"
+                  name="title"
                   required
                 />
                 <StInputJpg
@@ -101,7 +102,7 @@ const Add = () => {
                       key={Date.now()}
                       src={item}
                       alt="First slide"
-                      style={{ width: "80%", height: "80%" }}
+                      style={{ width: "40%", height: "40%" }}
                     />
                   );
                 })}
