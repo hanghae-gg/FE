@@ -53,22 +53,22 @@ const Login = () => {
                 />
               </h1>
             </div>
-
+            <StH2>간편 로그인</StH2>
+            <div>
+              <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=localhost:8080_URL&response_type=code">
+                <img
+                  src="http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg"
+                  style={{ width: 380, height: 60, marginTop: 5 }}
+                />
+              </a>
+            </div>
             <form>
-              <StH2>간편 로그인</StH2>
-
               <StFaceButton>
                 <span>
                   <StFaceImg src="https://member.op.gg/icon_facebook_wh.6ab689d7.svg"></StFaceImg>
                   <span className="faceSpan">페이스북으로 로그인</span>
                 </span>
               </StFaceButton>
-              <StAppleButton>
-                <span>
-                  <StAppleImg src="https://member.op.gg/logo_apple.dca28233.svg" />
-                  <span className="appleSpan">Apple로 로그인</span>
-                </span>
-              </StAppleButton>
 
               <StLoginLine>
                 <span className="line">OR</span>
@@ -158,7 +158,9 @@ const StLogo = styled.img`
 const StH2 = styled.div`
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
+  margin-top: -6%;
+  margin-bottom: 10px;
+  line-height: 50px;
 `;
 
 const StFaceButton = styled.button`

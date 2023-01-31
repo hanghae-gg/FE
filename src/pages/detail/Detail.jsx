@@ -169,7 +169,7 @@ const StDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 80vh;
+  height: 70vh;
   margin-bottom: 10%;
 `;
 
