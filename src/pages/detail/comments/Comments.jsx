@@ -56,14 +56,11 @@ export default Comments;
 const StContainer = styled.div`
   height: ${({ isShow }) => (isShow ? "400px" : "40px")};
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 0px;
   width: 100%;
   background-color: #f8f8f8;
   transition: height 400ms ease-in-out;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 `;
 
 const StToggleContainer = styled.div`
@@ -73,7 +70,6 @@ const StToggleContainer = styled.div`
 `;
 
 const StCommentList = styled.div`
-  /* height: 350px; */
   overflow: scroll;
 `;
 const StUpDown = styled.div`
@@ -85,7 +81,7 @@ const StUpDown = styled.div`
   text-align: center;
   color: black;
   font-weight: bold;
-  padding-top: 15px;
+  padding-top: 11px;
   margin-bottom: 30px;
   margin-left: 15px;
 `;

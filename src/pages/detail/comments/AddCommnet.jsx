@@ -31,7 +31,7 @@ const AddCommentForm = () => {
   //
 
   return (
-    <StForm
+    <form
       onSubmit={(e) => {
         e.preventDefault();
         submitCommentHandler(comment);
@@ -52,32 +52,22 @@ const AddCommentForm = () => {
         />
         <StButton type="submit">추가하기</StButton>
       </StIncludeBtnandInput>
-    </StForm>
+    </form>
   );
 };
 
 export default AddCommentForm;
 
-const StForm = styled.form`
-  gap: 12px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-`;
-
 const StInput = styled.input`
   width: 350px;
-  height: 40px;
+  height: 50px;
+  margin: 0px 20px 0px 0px;
   border-radius: 20px;
   border: solid white 1px;
   background-color: #f1f1f1;
-  padding-left: 10px;
+  padding-left: 15px;
 `;
 const StButton = styled.button`
-  /* margin: -40px auto auto 420px; */
   background-color: black;
   text-align: center;
   width: 70px;
@@ -92,10 +82,8 @@ const StButton = styled.button`
   font-size: 13px;
   color: white;
   cursor: pointer;
-  /* justify-content: center; */
   align-items: center;
   text-align: center;
-  /* font-family: "Noto Sans KR", sans-serif; */
 `;
 const StIncludeBtnandInput = styled.div`
   align-items: center;
@@ -103,5 +91,6 @@ const StIncludeBtnandInput = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 50px auto auto auto;
+  margin: 20px;
+  width: 600px;
 `;

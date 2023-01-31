@@ -44,10 +44,9 @@ const Comment = ({ comment }) => {
     <>
       {!isCommentEditMode ? (
         <StCommentBox>
-          작성자: {comment.username}
+          작성자: {comment.id}
           <br />
           <StBold>{comment.comment}</StBold>
-          <br />
           <StButtons>
             <StButton
               size="large"
@@ -104,36 +103,32 @@ const StEditCommentForm = styled.form`
 `;
 
 const StCommentBox = styled.div`
-  margin: 10px 0 0;
+  margin-top: 10px;
+  margin-left: 30px;
   /* border: 1px solid black; */
   width: 500px;
-  height: 40px;
+  height: 60px;
   background-color: aliceblue;
   padding: 15px;
   font-size: 14px;
   border-radius: 10px;
 `;
 const StButton = styled.button`
-  /* margin: auto; */
-  background-color: black;
-  margin-left: 15px;
-  margin-top: 3px;
-  text-align: center;
-  width: 70px;
-  height: 30px;
-  opacity: 0.9;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: center; */
-  align-items: center;
-  border-radius: 50px;
-  border: 1px solid black;
-  font-weight: bold;
-  font-size: 10px;
-  color: white;
-  cursor: pointer;
-  justify-content: center;
+  border: 1px solid #ddd;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: #46cfa7;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-left: 5px;
+  &:hover {
+    background: #b075fd;
+    color: white;
+    transition: 0.5s;
+  }
 `;
+
 const StEditDoneButton = styled.button`
   /* margin: auto; */
   background-color: black;
@@ -158,8 +153,9 @@ const StEditDoneButton = styled.button`
 const StButtons = styled.div`
   display: flex;
   flex-direction: row-reverse;
-  margin-top: -50px;
+  margin-top: -35px;
 `;
 const StBold = styled.div`
   font-weight: bold;
+  margin-top: 5px;
 `;

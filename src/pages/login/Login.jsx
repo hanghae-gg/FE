@@ -56,19 +56,7 @@ const Login = () => {
 
             <form>
               <StH2>간편 로그인</StH2>
-              <a
-                className="p-2"
-                href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=localhost:8080&response_type=code"
-              >
-                {/* REST_API키 및 REDIRECT_URi는 본인걸로 수정하세요 */}
-                {/* 저는 redirect_uri을 http://localhost:8080/member/kakaoLogin로 했습니다. */}
-                {/* 본인걸로 수정 시 띄어쓰기 절대 하지 마세요. 오류납니다. */}
-                <img
-                  src="https://developers.kakao.com/docs/latest/ko/assets/style/images/design-guide/login-button-standard.png"
-                  style={{ height: 60 }}
-                />
-                {/* 이미지는 카카오 개발자센터에서 제공하는 login 이미지를 사용했습니다. */}
-              </a>
+
               <StFaceButton>
                 <span>
                   <StFaceImg src="https://member.op.gg/icon_facebook_wh.6ab689d7.svg"></StFaceImg>

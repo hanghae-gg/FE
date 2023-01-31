@@ -58,109 +58,103 @@ const Detail = () => {
   return (
     <>
       <JK>
-        <StDetailALl>
+        <StDiv>
           {!isEditMode && (
-            <StDetailBox>
-              <StPicwithDesc>
-                <StListPic>
-                  <StImage
+            <div>
+              <div>
+                <StBox>
+                  <StH3>
+                    <h3 className="text-2xl">제목: {mylist.title}</h3>
+                  </StH3>
+                  <img
                     src={mylist.imageUrl}
-                    style={{ width: "80%", height: "80%" }}
+                    style={{ width: "550px ", height: "330px" }}
                   />
-                </StListPic>
-                <StDecsBox>
-                  <StDescDIv>
-                    <h3>{mylist.title}</h3>
-                    <br />
-                    <StDesc>설명: </StDesc>
-                    {mylist.content}
-                    <hr />
-                  </StDescDIv>
-                </StDecsBox>
-              </StPicwithDesc>
-              <StButtonDiv>
-                <StButton
+                  <StText>설명: {mylist.content} </StText>
+                </StBox>
+              </div>
+              <div>
+                <StButtons
                   size="large"
                   onClick={() => {
                     setIsEditMode(true);
                   }}
                 >
                   글 수정
-                </StButton>
-                <StButton
+                </StButtons>
+                <StButtons
                   size="large"
                   onClick={() => {
                     onDeletThisList();
                   }}
                 >
                   글 삭제
-                </StButton>
-              </StButtonDiv>
-              {/* <StLoveVIew>
-              <StLove>💜 {mylist.love}</StLove>
-              <StView>👀 {mylist.visit}</StView>
-            </StLoveVIew> */}
-            </StDetailBox>
+                </StButtons>
+              </div>
+            </div>
           )}
           {isEditMode && (
-            <StDetailBox>
-              <StDecs2Box>
-                <form
+            <div>
+              <div>
+                <StBox1
                   onSubmit={(e) => {
                     e.preventDefault();
                     onEditThisList(updatedList);
                     setIsEditMode(false);
                   }}
                 >
-                  <StImage
-                    src={mylist.imageUrl}
-                    style={{ width: "80%", height: "80%" }}
-                  />
                   <h3>게시글 수정하기 </h3>
-                  제목 :
-                  <StInput
-                    required
-                    type="text"
-                    placeholder={mylist.title}
-                    onChange={(ev) => {
-                      setUpdatedList({
-                        ...updatedList,
-                        title: ev.target.value,
-                      });
-                    }}
+                  <div>
+                    제목 :
+                    <StInput
+                      required
+                      type="text"
+                      placeholder={mylist.title}
+                      onChange={(ev) => {
+                        setUpdatedList({
+                          ...updatedList,
+                          title: ev.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                  <img
+                    src={mylist.imageUrl}
+                    style={{ width: "550px ", height: "330px" }}
                   />
-                  <br />
-                  설명 :
-                  <StDescInput
-                    required
-                    type="text"
-                    placeholder={mylist.content}
-                    onChange={(ev) => {
-                      setUpdatedList({
-                        ...updatedList,
-                        content: ev.target.value,
-                      });
-                    }}
-                  />
-                  <br />{" "}
-                  <StButtonDiv1>
-                    <StButton type="submit " size="large">
+                  <div>
+                    <h2>설명</h2>
+                    <Textarea
+                      required
+                      type="text"
+                      placeholder={mylist.content}
+                      onChange={(ev) => {
+                        setUpdatedList({
+                          ...updatedList,
+                          content: ev.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+
+                  <StBtBox>
+                    <StButtons1 type="submit " size="large">
                       저장
-                    </StButton>
-                    <StButton
+                    </StButtons1>
+                    <StButtons1
                       size="large"
                       onClick={() => {
                         setIsEditMode(false);
                       }}
                     >
                       뒤로
-                    </StButton>
-                  </StButtonDiv1>
-                </form>
-              </StDecs2Box>
-            </StDetailBox>
+                    </StButtons1>
+                  </StBtBox>
+                </StBox1>
+              </div>
+            </div>
           )}
-        </StDetailALl>
+        </StDiv>
       </JK>
       {!isEditMode && <Comments />}
     </>
@@ -168,121 +162,100 @@ const Detail = () => {
 };
 
 export default Detail;
-const StDetailALl = styled.div`
-  margin-top: 20px;
-  text-align: center;
+const StDiv = styled.div`
+  position: absolute;
+  background-color: #ebeef1;
   display: flex;
-  //아래로 정열
-  flex-direction: column;
-  //가운데 배열
-  align-items: center;
-`;
-
-const StDetailBox = styled.div`
-  display: flex;
-  //가운데 배열
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
+  margin-bottom: 10%;
 `;
 
-const StListPic = styled.div`
-  width: 300px;
-  height: 300px;
-  margin: auto;
-  margin-left: 10px;
+const StBox = styled.div`
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 700px;
+  height: 60vh;
 `;
-const StDecs2Box = styled.div`
+
+const StBox1 = styled.form`
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 700px;
+  height: 70vh;
+`;
+const StH3 = styled.div`
   width: 600px;
-  height: 700px;
-  margin: auto;
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ececec;
-  border-radius: 15px;
-`;
-const StDecsBox = styled.div`
-  border-left: solid #dadada 1px;
-  width: 300px;
-  height: 300px;
-  margin: auto;
-  margin-left: 10px;
-`;
-
-const StPicwithDesc = styled.div`
-  display: flex;
-  //가운데 배열
-  align-items: center;
-  border-radius: 15px;
-  background-color: aliceblue;
-  justify-content: center;
-`;
-
-const StButton = styled.button`
-  margin: 10px auto auto 10px;
-  background-color: black;
-  text-align: center;
-  width: 70px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
+  height: 50px;
   border: 1px solid black;
-  font-weight: bold;
-  font-size: 13px;
-  color: white;
-  cursor: pointer;
-`;
-const StButtonDiv1 = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-left: 170px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-`;
-const StButtonDiv = styled.div`
-  display: flex;
-  justify-content: center;
+  padding: 8px;
 `;
 
 const StInput = styled.input`
-  width: 300px;
-  height: 20px;
-  border-radius: 15px;
-  border: none;
-  padding: 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 500px;
+  height: 40px;
+  border: 1px solid black;
+  padding: 8px;
 `;
-const StDescInput = styled.input`
-  width: 300px;
-  height: 400px;
-  border-radius: 15px;
-  border: none;
-  padding: 5px;
-  margin-top: 15px;
+const StText = styled.div`
+  width: 600px;
+  margin-top: 10px;
+  border: 1px solid gray;
+  height: 200px;
+  padding: 8px;
+  font-size: 14px;
 `;
-const StDesc = styled.div`
-  color: gray;
-`;
-const StDescDIv = styled.div`
-  width: 200px;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+const StButtons = styled.button`
+  border: 1px solid #ddd;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  background-color: #46cfa7;
+  padding-top: 5px;
+  margin-top: 30px;
+  margin-left: 24%;
+  margin-bottom: 19%;
+  padding-bottom: 10px;
+  &:hover {
+    background: #b075fd;
+    color: white;
+    transition: 0.5s;
+  }
 `;
 
-const StImage = styled.img`
-  width: 240px;
-  height: 240px;
-  justify-content: center;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
+const StButtons1 = styled.button`
+  border: 1px solid #ddd;
+  height: 50px;
+  width: 100px;
   border-radius: 10px;
+  background-color: #46cfa7;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin: 0px 100px 0px 100px;
+  &:hover {
+    background: #b075fd;
+    color: white;
+    transition: 0.5s;
+  }
+`;
+const StBtBox = styled.div`
+  float: left;
+`;
+
+const Textarea = styled.textarea`
+  margin-top: 10px;
+  border: 1px solid gray;
+  width: 550px;
+  height: 200px;
+  padding: 8px;
+  font-size: 14px;
 `;
