@@ -90,7 +90,10 @@ const JK = ({ children }) => {
                 // onChange={onChangeHandler}
               />
               <button className="game-info-search__button">
-                <img src="https://talk.op.gg/images/btn-lol@2x.png" alt=""></img>
+                <img
+                  src="https://talk.op.gg/images/btn-lol@2x.png"
+                  alt=""
+                ></img>
               </button>
             </form>
           </div>
@@ -324,7 +327,11 @@ const StBackground = styled.div`
     width: 100%;
     height: 100%;
     content: "";
-    background-image: linear-gradient(180deg, rgba(51, 56, 60, 0.5), rgba(0, 0, 0, 0.5)),
+    background-image: linear-gradient(
+        180deg,
+        rgba(51, 56, 60, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
       url("https://talk.op.gg/images/game/bg_lol.jpg");
     background-size: 100%;
     background-position: 50% 30%;
