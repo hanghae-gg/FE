@@ -11,20 +11,26 @@ const Summoners = () => {
 
   const fetchData = async () => {
     axios
-      .post(`http://3.38.107.133/records`, id, {
-        headers: {
-          "Content-Type": "application/json",
+      .post(
+        `${process.env.REACT_APP_LIST}/records`,
+        {
+          nickname: id,
         },
-      })
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
-        setDatas(res);
-        console.log(res);
+        setDatas(res.data.data);
+        console.log(res.data);
       });
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -39,7 +45,7 @@ const Summoners = () => {
               />
             </div>
             <UserNRefresh>
-              <UserName>유저이름 {datas.nickname}</UserName>
+              <UserName>{id}</UserName>
               <RefreshData>전적갱신{datas.win}</RefreshData>
             </UserNRefresh>
           </StUserGroup>
@@ -47,39 +53,32 @@ const Summoners = () => {
             <StOneListBox>
               <div>
                 <StOneList>
-                  <div>승리</div>
-                  <div>챔피언 이름</div>
-                  <Stchamp src="https://opgg-static.akamaized.net/meta/images/lol/champion/Evelynn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225" />
-                  <Unit> 10 / 2 / 4</Unit>
-                  <Unit> 평점</Unit>
-                  <StImage style={{ width: "20%", height: "20%" }} />
+                  <div>로딩중</div>
                 </StOneList>
               </div>
             </StOneListBox>
-            <StOneListBox>
-              <div>
-                <StOneList>
-                  <div>패배</div>
-                  <div>챔피언 이름</div>
-                  <Stchamp src="https://opgg-static.akamaized.net/meta/images/lol/champion/Kayn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225" />
-                  <Unit> 1 / 5 / 4</Unit>
-                  <Unit> 평점</Unit>
-                  <StImage style={{ width: "20%", height: "20%" }} />
-                </StOneList>
-              </div>
-            </StOneListBox>
-            {/* <Listt>
-            {datas?.map((data) => (
-              <StOneListBox key={data.postId}>
-                <div>
-                  <StOneList>
-                      <Unit>{data.title}</Unit>
-                    <StImage src={data.image} style={{ width: "20%", height: "20%" }} />
-                  </StOneList>
-                </div>
-              </StOneListBox>
-            ))}
-          </Listt> */}
+
+            <Listt>
+              {datas?.map((data) => (
+                <StOneListBox key={data.postId}>
+                  <div>
+                    <StOneList>
+                      <div>승패{data.win}</div>
+                      <div>챔피언 이름{data.championName}</div>
+                      <Stchamp
+                        src="https://opgg-static.akamaized.net/meta/images/lol/champion/Kayn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225"
+                        style={{ width: "20%", height: "20%" }}
+                      />
+                      <Unit>
+                        {data.kills}/ {data.deaths} /{data.assists}
+                      </Unit>
+                      <Unit>{data.kda}</Unit>
+                      <StImage style={{ width: "20%", height: "20%" }} />
+                    </StOneList>
+                  </div>
+                </StOneListBox>
+              ))}
+            </Listt>
           </StHistories>
         </StSummoners>
       </StBackground>
