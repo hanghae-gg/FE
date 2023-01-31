@@ -44,7 +44,7 @@ const Comment = ({ comment }) => {
     <>
       {!isCommentEditMode ? (
         <StCommentBox>
-          작성자: {comment.id}
+          작성자: {comment.username}
           <br />
           <StBold>{comment.comment}</StBold>
           <StButtons>
