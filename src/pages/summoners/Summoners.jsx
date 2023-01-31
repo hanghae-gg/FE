@@ -8,6 +8,7 @@ const Summoners = () => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
   const [win, setWin] = useState(true);
+  // const championImg = `https://opgg-static.akamaized.net/meta/images/lol/champion/${props.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`;
 
   const fetchData = async () => {
     axios
@@ -24,7 +25,7 @@ const Summoners = () => {
       )
       .then((res) => {
         setDatas(res.data.data);
-        console.log(res.data);
+        console.log(res.data.data);
       });
   };
 
@@ -50,33 +51,51 @@ const Summoners = () => {
             </UserNRefresh>
           </StUserGroup>
           <StHistories>
-            <StOneListBox>
-              <div>
-                <StOneList>
-                  <div>로딩중</div>
-                </StOneList>
-              </div>
-            </StOneListBox>
-
             <Listt>
               {datas?.map((data) => (
-                <StOneListBox key={data.postId}>
-                  <div>
-                    <StOneList>
-                      <div>승패{data.win}</div>
-                      <div>챔피언 이름{data.championName}</div>
-                      <Stchamp
-                        src="https://opgg-static.akamaized.net/meta/images/lol/champion/Kayn.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225"
-                        style={{ width: "20%", height: "20%" }}
-                      />
+                <>
+                  {data.win ? (
+                    <StOneListBox primary={data.win} key={data.kda}>
+                      <StOneList>
+                        <Win>패배</Win>
+                        <StChampionName>
+                          {data.championName}
+                          <br />
+                          <Stchamp
+                            // src={championImg}
+                            alt={data.championName}
+                            style={{ width: "20%", height: "20%" }}
+                          />
+                        </StChampionName>
+                      </StOneList>
                       <Unit>
                         {data.kills}/ {data.deaths} /{data.assists}
+                        <br />
+                        {data.kda}
                       </Unit>
-                      <Unit>{data.kda}</Unit>
-                      <StImage style={{ width: "20%", height: "20%" }} />
-                    </StOneList>
-                  </div>
-                </StOneListBox>
+                    </StOneListBox>
+                  ) : (
+                    <StOneListBox primary={data.win} key={data.kda}>
+                      <StOneList>
+                        <Win>패배</Win>
+                        <StChampionName>
+                          {data.championName}
+                          <br />
+                          <Stchamp
+                            // src="https://opgg-static.akamaized.net/meta/images/lol/champion/{data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225"
+                            alt={data.championName}
+                            style={{ width: "20%", height: "20%" }}
+                          />
+                        </StChampionName>
+                      </StOneList>
+                      <Unit>
+                        {data.kills}/ {data.deaths} /{data.assists}
+                        <br />
+                        {data.kda}
+                      </Unit>
+                    </StOneListBox>
+                  )}
+                </>
               ))}
             </Listt>
           </StHistories>
@@ -146,9 +165,9 @@ const Listt = styled.div`
   height: fit-content;
   max-width: 1440px;
   /* display: grid; */
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr); */
   flex-direction: column;
-  place-items: center;
+  /* place-items: center; */
   gap: 10px 0px;
   margin-top: 5px;
 `;
@@ -157,35 +176,45 @@ const StOneListBox = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
-  background-color: #b1c9b0;
+  background-color: #59343b;
+  color: white;
   /* border: 1px solid gray; */
   padding: 15px;
   border-radius: 20px;
+  max-width: 1000px;
   width: 70%;
   height: 20%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+
+  ${(props) =>
+    props.primary &&
+    `
+    background : #28344E;
+  `}
 `;
 
 const StOneList = styled.div`
-  max-width: 1400px;
   display: flex;
   justify-content: space-between;
 `;
 
 const Unit = styled.div`
-  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 20px;
   height: 40px;
-  width: 200px;
-  color: #000000;
+  width: 300px;
+  color: white;
 `;
 
-const StImage = styled.img`
-  border-radius: 10px 10px 10px 10px;
-  max-width: 200px;
-  margin-left: -100px;
+const Win = styled.div`
+  margin-right: 80px;
+  text-align: left;
+  font-size: 15px;
+  width: 10px;
+  height: 30px;
 `;
+
+const StChampionName = styled.div``;
