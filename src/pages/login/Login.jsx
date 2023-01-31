@@ -55,7 +55,7 @@ const Login = () => {
             </div>
             <StH2>간편 로그인</StH2>
             <div>
-              <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://hh.gg.s3-website.ap-northeast-2.amazonaws.com/login&response_type=code">
+              <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://hh.gg.s3-website.ap-northeast-2.amazonaws.com&response_type=code">
                 <img
                   src="http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg"
                   style={{ width: 380, height: 60, marginTop: 5 }}
