@@ -25,7 +25,7 @@ const Lists = () => {
   }, []);
 
   return (
-    <Listt>
+    <div>
       {lists?.map((list) => (
         <StOneListBox key={list.postId}>
           <div
@@ -42,14 +42,14 @@ const Lists = () => {
                 </StTitleDelete>
                 <StImage
                   src={list.imageUrl}
-                  style={{ width: "20%", height: "20%" }}
+                  style={{ width: "210px", height: "100px" }}
                 />
               </StOneList>
             </div>
           </div>
         </StOneListBox>
       ))}
-    </Listt>
+    </div>
   );
 };
 
@@ -59,15 +59,16 @@ const StOneListBox = styled.div`
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 10px;
-  background-color: #b1c9b0;
+  background-color: #c4ddc3;
   /* border: 1px solid gray; */
   padding: 15px;
   border-radius: 20px;
   width: 700px;
-  height: 100px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const StTitleDelete = styled.div`
@@ -79,31 +80,24 @@ const StOneList = styled.div`
   max-width: 1400px;
   display: flex;
   justify-content: space-between;
-`;
-
-const Listt = styled.div`
-  height: fit-content;
-  max-width: 1440px;
-  /* display: grid; */
-  grid-template-columns: repeat(4, 1fr);
-  flex-direction: column;
-  place-items: center;
-  gap: 10px 0px;
-  margin-top: 5px;
+  &:hover {
+    transition: 0.5s;
+    background-color: #c8ee9d;
+    overflow: hidden;
+    scale: 1.2;
+  }
 `;
 
 const Unit = styled.div`
-  margin-top: 10px;
-  text-align: center;
+  margin-top: 36px;
+  margin-left: 15%;
   font-size: 25px;
-  line-height: 20px;
-  height: 40px;
   width: 200px;
   color: #000000;
 `;
 
 const StImage = styled.img`
   border-radius: 10px 10px 10px 10px;
-  max-width: 200px;
-  margin-left: -100px;
+  max-width: 400px;
+  margin-right: 1%;
 `;

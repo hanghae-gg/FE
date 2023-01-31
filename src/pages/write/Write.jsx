@@ -112,7 +112,7 @@ const Add = () => {
                       key={Date.now()}
                       src={item}
                       alt="First slide"
-                      style={{ width: "40%", height: "40%" }}
+                      style={{ width: "350px", height: "220px" }}
                     />
                   );
                 })}
@@ -192,7 +192,7 @@ const StButton = styled.button`
   border: 1px solid black;
   font-weight: bold;
   font-size: 13px;
-  color: white;
+  color: black;
   cursor: pointer;
 `;
 const StButtons = styled.div`
