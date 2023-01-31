@@ -174,7 +174,7 @@ const StAddCard = styled.div`
   flex-direction: row;
   background-color: white;
   width: 700px;
-  height: 800px;
+  height: 950px;
   margin-top: -15%;
 `;
 
