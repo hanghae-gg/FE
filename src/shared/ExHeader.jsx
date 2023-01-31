@@ -35,13 +35,9 @@ const MainHeader = () => {
           </StTolkpggContainer>
           <StNavigationListContainer>
             {token ? (
-              <HeaderLoginButton onClick={LogoutButton}>
-                로그아웃
-              </HeaderLoginButton>
+              <HeaderLoginButton onClick={LogoutButton}>로그아웃</HeaderLoginButton>
             ) : (
-              <HeaderLoginButton onClick={() => navigate("/login")}>
-                로그인
-              </HeaderLoginButton>
+              <HeaderLoginButton onClick={() => navigate("/login")}>로그인</HeaderLoginButton>
             )}
           </StNavigationListContainer>
         </StNavigationContontainer>
@@ -49,7 +45,7 @@ const MainHeader = () => {
       <StSecondHeaderContainer>
         <StSecondNavigationContentainer>
           <StLeftHeader>
-            <StSecondLolA>홈</StSecondLolA>
+            <StSecondLolA to="/">홈</StSecondLolA>
             <StSecondWatchA to="/List">커뮤니티</StSecondWatchA>
           </StLeftHeader>
         </StSecondNavigationContentainer>
