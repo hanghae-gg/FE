@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const JK = ({ children }) => {
   const navigate = useNavigate();
+  const [nickname, setNickname] = useState({
+    nickname: "",
+  });
+
+  const onPostHandler = (e) => {
+    navigate(`/Summoners/${e.nickname}`);
+  };
   function Header() {
     return (
       <>
@@ -77,22 +84,31 @@ const JK = ({ children }) => {
                 <h1 className="game-info__name">리그오브레전드</h1>
               </StLink>
             </div>
-            <form
-              className="game-info-search"
-              // onSubmit={onSubmitHandler}
-            >
-              <input
-                className="game-info-search__input"
-                type="text"
-                name="keyword"
-                // value={keyword.keyword}
-                placeholder="검색어 입력"
-                // onChange={onChangeHandler}
-              />
-              <button className="game-info-search__button">
-                <img src="https://talk.op.gg/images/btn-lol@2x.png" alt=""></img>
-              </button>
-            </form>
+            <>
+              <form
+                className="game-info-search"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  onPostHandler(nickname);
+                }}
+              >
+                <input
+                  className="game-info-search__input"
+                  type="text"
+                  placeholder="소환사명을 입력하세요"
+                  onChange={(event) => {
+                    console.log(event.nativeEvent.data);
+                    const { value } = event.target;
+                    setNickname({
+                      nickname: value,
+                    });
+                  }}
+                />
+                <button className="game-info-search__button">
+                  <img src="https://talk.op.gg/images/btn-lol@2x.png" alt="입력" />
+                </button>
+              </form>
+            </>
           </div>
         </StBackground>
       </>
