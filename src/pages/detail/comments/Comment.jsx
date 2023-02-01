@@ -39,7 +39,6 @@ const Comment = ({ comment }) => {
     );
   };
 
-  console.log(comment.id);
   return (
     <>
       {!isCommentEditMode ? (
@@ -105,7 +104,6 @@ const StEditCommentForm = styled.form`
 const StCommentBox = styled.div`
   margin-top: 10px;
   margin-left: 30px;
-  /* border: 1px solid black; */
   width: 500px;
   height: 60px;
   background-color: aliceblue;
@@ -130,7 +128,6 @@ const StButton = styled.button`
 `;
 
 const StEditDoneButton = styled.button`
-  /* margin: auto; */
   background-color: black;
   margin-top: 10px;
   margin-left: 10px;
@@ -148,7 +145,6 @@ const StEditDoneButton = styled.button`
   font-size: 10px;
   color: white;
   cursor: pointer;
-  /* font-family: "Noto Sans KR", sans-serif; */
 `;
 const StButtons = styled.div`
   display: flex;

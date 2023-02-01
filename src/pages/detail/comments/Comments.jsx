@@ -50,7 +50,6 @@ const Comments = () => {
 };
 export default Comments;
 
-///댓글 기능
 const StContainer = styled.div`
   height: ${({ isShow }) => (isShow ? "400px" : "40px")};
   position: absolute;

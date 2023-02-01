@@ -135,7 +135,6 @@ const JK = ({ children }) => {
       <StBackground>
         <Header />
         <div style={{ ...layoutStyles }}>{children}</div>
-        {/* <Footer /> */}
       </StBackground>
     </body>
   );

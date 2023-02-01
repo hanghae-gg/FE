@@ -4,21 +4,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const AddCommentForm = () => {
-  // const [cookies, setCookie] = useCookies(["쿠키 이름"]);
   const { id } = useParams();
   const [comment, setComment] = useState({
     comment: "",
   });
   // 토큰 값 로컬스토리지에서 지정가져오기
   const token = localStorage.getItem("accessToken");
-
-  // const submitCommentHandler = (comment) => {
-  //   fetch(`${process.env.REACT_APP_CAT}/board/${id}`, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json", Authorization: Authorizationtest },
-  //     body: JSON.stringify(comment),
-  //   }).then((response) => response.json());
-  // };
 
   const submitCommentHandler = (comment) => {
     axios.post(`${process.env.REACT_APP_LIST}/comments/${id}`, comment, {

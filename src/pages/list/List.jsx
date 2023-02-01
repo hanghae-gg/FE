@@ -81,7 +81,6 @@ const List = () => {
           </div>
         </div>
         <section className="article-list">
-          {/* <Address /> */}
           <Lists />
         </section>
       </StContent>

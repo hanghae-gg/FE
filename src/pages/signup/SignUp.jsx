@@ -117,11 +117,12 @@ const SignUp = () => {
                   placeholder="아이디를 입력해주세요"
                   onChange={onChangeUserHandler}
                 ></input>
+                <StButton onClick={onSubmitUserCheckHandler}>중복체크</StButton>
               </StPwBox>
               <p id="help-user" className="help">
                 {usernameInput}
               </p>
-              <buttom onClick={onSubmitUserCheckHandler}>중복체크</buttom>
+
               <StPwBox>
                 <input
                   type="email"
@@ -207,6 +208,21 @@ const StLoginBox = styled.div`
     padding-top: 48px;
     text-align: center;
     margin-bottom: 42px;
+  }
+`;
+const StButton = styled.button`
+  border: 1px solid #ddd;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: #46cfa7;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-left: 20%;
+  &:hover {
+    background: #b075fd;
+    color: white;
+    transition: 0.5s;
   }
 `;
 

@@ -28,7 +28,7 @@ const Login = () => {
   const onSubmitLoginHandler = (e) => {
     e.preventDefault();
     if (user.username.trim() === "" || user.password.trim() === "") {
-      alert("체크피료해");
+      alert("체크필요해요");
     }
     dispatch(__postLogin(user));
   };
@@ -98,7 +98,9 @@ const Login = () => {
                   <label>로그인 상태 유지하기</label>
                 </div>
               </StLoginCheck>
-              <StLoginButton onClick={onSubmitLoginHandler}>로그인</StLoginButton>
+              <StLoginButton onClick={onSubmitLoginHandler}>
+                로그인
+              </StLoginButton>
               <StSignUp>
                 OP.GG에 처음이세요?
                 <span>
@@ -302,7 +304,8 @@ const StLoginCheck = styled.div`
     display: block;
     width: 13px;
     height: 10px;
-    background: url(https://member.op.gg/icon_check_bl.10732f6d.svg) no-repeat 0 0;
+    background: url(https://member.op.gg/icon_check_bl.10732f6d.svg) no-repeat 0
+      0;
   }
   label {
     font-weight: 400;
