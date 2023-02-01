@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import JK from "../../shared/WriteHeader";
 import Lists from "./Lists";
-import Address from "./Address";
 
 const List = () => {
   const navigate = useNavigate();
@@ -25,10 +24,7 @@ const List = () => {
                   }}
                   className="write-link"
                 >
-                  <img
-                    src="https://talk.op.gg/images/icon-write@2x.png"
-                    alt="글쓰기"
-                  />
+                  <img src="https://talk.op.gg/images/icon-write@2x.png" alt="글쓰기" />
                 </div>
               </li>
             </ul>
@@ -43,10 +39,7 @@ const List = () => {
               </li>
               <li className="sub-link__item--active">
                 <div>
-                  <img
-                    src="https://talk.op.gg/images/icon-new-on@2x.png"
-                    alt=""
-                  />
+                  <img src="https://talk.op.gg/images/icon-new-on@2x.png" alt="" />
                   <span>최신</span>
                 </div>
               </li>
@@ -61,10 +54,7 @@ const List = () => {
               </li>
               <li className="sub-link__item">
                 <div>
-                  <img
-                    src="https://talk.op.gg/images/icon-boost@2x.png"
-                    alt=""
-                  />
+                  <img src="https://talk.op.gg/images/icon-boost@2x.png" alt="" />
                   <span>10추</span>
                 </div>
               </li>
@@ -84,10 +74,7 @@ const List = () => {
                   placeholder="검색"
                 />
                 <button className="sub-header-search__button">
-                  <img
-                    src="https://talk.op.gg/images/icon-search@2x.png"
-                    alt=""
-                  ></img>
+                  <img src="https://talk.op.gg/images/icon-search@2x.png" alt=""></img>
                 </button>
               </form>
             </div>

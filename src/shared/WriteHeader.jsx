@@ -4,14 +4,14 @@ import styled from "styled-components";
 
 const JK = ({ children }) => {
   const navigate = useNavigate();
-  const [nickname, setNickname] = useState({
-    nickname: "",
-  });
 
   const onPostHandler = (e) => {
     navigate(`/Summoners/${e.nickname}`);
   };
   function Header() {
+    const [nickname, setNickname] = useState({
+      nickname: "",
+    });
     return (
       <>
         <StSidebarContentHeader>
@@ -104,10 +104,7 @@ const JK = ({ children }) => {
                   }}
                 />
                 <button className="game-info-search__button">
-                  <img
-                    src="https://talk.op.gg/images/btn-lol@2x.png"
-                    alt="입력"
-                  />
+                  <img src="https://talk.op.gg/images/btn-lol@2x.png" alt="입력" />
                 </button>
               </form>
             </>
@@ -342,11 +339,7 @@ const StBackground = styled.div`
     width: 100%;
     height: 100%;
     content: "";
-    background-image: linear-gradient(
-        180deg,
-        rgba(51, 56, 60, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
+    background-image: linear-gradient(180deg, rgba(51, 56, 60, 0.5), rgba(0, 0, 0, 0.5)),
       url("https://talk.op.gg/images/game/bg_lol.jpg");
     background-size: 100%;
     background-position: 50% 30%;
