@@ -39,7 +39,8 @@ const Detail = () => {
           Authorization: token,
         },
       });
-      return navigate("/List");
+      navigate("/List");
+      window.location.reload();
     } else {
       return;
     }
