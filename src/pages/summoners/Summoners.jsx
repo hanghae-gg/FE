@@ -63,11 +63,11 @@ const Summoners = () => {
                       <StOneList>
                         <Win>승리</Win>
                         <StChampionName>
-                          <div className="ml-4 mb-3"> {data.championName}</div>
+                          <div className="ml-3 mb-3"> {data.championName}</div>
                           <Stchamp
                             src={`https://opgg-static.akamaized.net/meta/images/lol/champion/${data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`}
                             alt={data.championName}
-                            style={{ width: "100px", height: "80px" }}
+                            style={{ width: "80px", height: "80px" }}
                           />
                         </StChampionName>
                       </StOneList>
@@ -82,11 +82,11 @@ const Summoners = () => {
                       <StOneList>
                         <StLose>패배</StLose>
                         <StChampionName>
-                          <div className="ml-4 mb-3"> {data.championName}</div>
+                          <div className="ml-3 mb-3"> {data.championName}</div>
                           <Stchamp
                             src={`https://opgg-static.akamaized.net/meta/images/lol/champion/${data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`}
                             alt={data.championName}
-                            style={{ width: "100px", height: "80px" }}
+                            style={{ width: "80px", height: "80px" }}
                           />
                         </StChampionName>
                       </StOneList>

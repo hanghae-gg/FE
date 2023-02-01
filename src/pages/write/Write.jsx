@@ -65,7 +65,7 @@ const Add = () => {
         }
       })
       .catch((error) => {});
-    // navigate("/List");
+    navigate("/List");
   };
 
   return (
