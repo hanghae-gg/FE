@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import JK from "../../shared/JKHeader";
+import JK from "../../shared/WriteHeader";
 
 const Add = () => {
   const navigate = useNavigate();
@@ -61,14 +61,13 @@ const Add = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         if (response.data) {
         }
       })
       .catch((error) => {});
     // navigate("/List");
   };
-  console.log(lists);
+
   return (
     <StDiv>
       <JK>

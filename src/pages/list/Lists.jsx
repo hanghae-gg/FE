@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import JK from "../../shared/JKHeader";
+import JK from "../../shared/WriteHeader";
 
 const Lists = () => {
   const navigate = useNavigate();
@@ -11,7 +11,6 @@ const Lists = () => {
   const token = localStorage.getItem("accessToken");
 
   const fetchList = async () => {
-    console.log(process.env.REACT_APP_LIST);
     const { data } = await axios.get(`${process.env.REACT_APP_LIST}/posts`, {
       headers: {
         Authorization: token,
@@ -19,7 +18,7 @@ const Lists = () => {
     });
     setLists(data);
   };
-  console.log(lists);
+
   useEffect(() => {
     fetchList();
   }, []);
@@ -31,7 +30,6 @@ const Lists = () => {
           <div
             key={list.postId}
             onClick={() => {
-              console.log(list.postId);
               navigate(`/Detail/${list.postId}`);
             }}
           >

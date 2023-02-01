@@ -23,7 +23,6 @@ export const __postUser = createAsyncThunk(
       });
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
-      console.log(error);
       if (400 < error.status < 500) {
         alert(error.response.data.messages);
       }
@@ -42,9 +41,8 @@ export const __logoutUser = createAsyncThunk(
       });
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
-      console.log(error);
+      return thunkAPI.rejectWithValue();
     }
-    return thunkAPI.rejectWithValue();
   }
 );
 
@@ -66,7 +64,6 @@ export const __postLogin = createAsyncThunk(
 
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
-      console.log(error);
       if (400 < error.status < 500) {
         alert(error.response.data.message);
       }
@@ -84,7 +81,6 @@ export const __checkId = createAsyncThunk(
       });
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
-      console.log(error);
       if (400 < error.status < 500) {
         alert("중복된 아이디입니다.");
       }

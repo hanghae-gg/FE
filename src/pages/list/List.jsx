@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import JK from "../../shared/JKHeader";
+import JK from "../../shared/WriteHeader";
 import Lists from "./Lists";
 import Address from "./Address";
 
