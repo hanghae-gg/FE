@@ -24,6 +24,14 @@
 7. 리스트 조회
 8. 유저 전적 검색
    <br/>
+   
+   ## 실행화면
+
+<img src="https://opggpost.s3.amazonaws.com/e1b4b118-cffe-41ee-b124-e0fe959e9ef0">
+자세한 영상 : https://www.youtube.com/watch?v=kBaPdyhto84
+
+<br>
+
 
 ## :mag_right: Meaning
 
