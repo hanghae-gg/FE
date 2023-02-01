@@ -9,7 +9,6 @@ const AddCommentForm = () => {
   const [comment, setComment] = useState({
     comment: "",
   });
-  console.log(id);
   // 토큰 값 로컬스토리지에서 지정가져오기
   const token = localStorage.getItem("accessToken");
 

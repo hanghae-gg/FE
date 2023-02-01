@@ -5,14 +5,10 @@ const MainHeader = () => {
   const navigate = useNavigate();
 
   const token = localStorage.getItem("accessToken");
-  console.log(token);
 
-  //   const [isLogin, setIsLogin] = useRecoilState(Login);
   const LogoutButton = () => {
     localStorage.removeItem("accessToken");
 
-    // dispatch(logoutState());
-    // setIsLogin(false);
     navigate("/");
     alert("로그아웃이 완료되었습니다");
   };
@@ -35,9 +31,13 @@ const MainHeader = () => {
           </StTolkpggContainer>
           <StNavigationListContainer>
             {token ? (
-              <HeaderLoginButton onClick={LogoutButton}>로그아웃</HeaderLoginButton>
+              <HeaderLoginButton onClick={LogoutButton}>
+                로그아웃
+              </HeaderLoginButton>
             ) : (
-              <HeaderLoginButton onClick={() => navigate("/login")}>로그인</HeaderLoginButton>
+              <HeaderLoginButton onClick={() => navigate("/login")}>
+                로그인
+              </HeaderLoginButton>
             )}
           </StNavigationListContainer>
         </StNavigationContontainer>

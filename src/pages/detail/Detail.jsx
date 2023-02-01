@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Comments from "./comments/Comments";
-import JK from "../../shared/JKHeader";
+import JK from "../../shared/WriteHeader";
 
 const Detail = () => {
   const { id } = useParams();
@@ -54,7 +54,7 @@ const Detail = () => {
         setMylist(appData.data);
       }, []);
   }, [id, token]);
-  console.log(updatedList);
+
   return (
     <>
       <JK>

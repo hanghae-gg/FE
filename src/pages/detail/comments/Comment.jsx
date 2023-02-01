@@ -10,7 +10,7 @@ const Comment = ({ comment }) => {
   const [editcomment, setEditcomment] = useState({
     comment: "",
   });
-  console.log(comment);
+
   const onDeleteComment = async () => {
     const result = window.confirm("삭제하시겠습니까?");
     if (result) {
@@ -44,7 +44,7 @@ const Comment = ({ comment }) => {
     <>
       {!isCommentEditMode ? (
         <StCommentBox>
-          작성자: {comment.id}
+          작성자: {comment.username}
           <br />
           <StBold>{comment.comment}</StBold>
           <StButtons>

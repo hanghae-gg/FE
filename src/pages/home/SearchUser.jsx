@@ -6,12 +6,11 @@ const HomeMain = ({ history }) => {
 
   const handleInput = (e) => {
     setUsername(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
+
     history.push("/summoner/" + username);
   };
 
@@ -20,10 +19,19 @@ const HomeMain = ({ history }) => {
       <div className="l-container">
         <div className="index-logo">
           <div id="logo">
-            <img src="img/homeLogo.png" className="Image" title="베이가" alt="베이가" />
+            <img
+              src="img/homeLogo.png"
+              className="Image"
+              title="베이가"
+              alt="베이가"
+            />
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="summoner-search-form" autoComplete="off">
+        <form
+          onSubmit={handleSubmit}
+          className="summoner-search-form"
+          autoComplete="off"
+        >
           <input
             type="text"
             name="username"

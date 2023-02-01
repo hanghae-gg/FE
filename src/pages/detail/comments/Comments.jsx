@@ -16,8 +16,6 @@ const Comments = () => {
     });
   }, [id]);
 
-  console.log(mycomment);
-
   return (
     <>
       <StContainer isShow={isShow}>

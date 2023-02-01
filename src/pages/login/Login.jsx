@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { __postLogin } from "../../redux/modules/loginSlice";
 import styled from "styled-components";
-import Kakaologin from "./Kakaologin";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ const Login = () => {
 
   //로그인 체크 전역변수 불러오기
   const loginCheck = useSelector((state) => state.userList.isLogin);
-  console.log(loginCheck);
 
   //로그인에 필요한 인풋값 유저스테이트에 저장
   const onChangeLoginHandler = (e) => {
@@ -55,7 +53,6 @@ const Login = () => {
             </div>
             <StH2>간편 로그인</StH2>
             <div>
-              {/* <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://hh.gg.s3-website.ap-northeast-2.amazonaws.com&response_type=code"> */}
               <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://localhost:3000&response_type=code">
                 <img
                   src="http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg"
