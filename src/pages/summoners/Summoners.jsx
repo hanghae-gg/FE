@@ -57,14 +57,14 @@ const Summoners = () => {
                   {data.win ? (
                     <StOneListBox primary={data.win} key={data.kda}>
                       <StOneList>
-                        <Win>패배</Win>
+                        <Win>승리</Win>
                         <StChampionName>
                           {data.championName}
                           <br />
                           <Stchamp
-                            // src={championImg}
+                            src={`https://opgg-static.akamaized.net/meta/images/lol/champion/${data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`}
                             alt={data.championName}
-                            style={{ width: "20%", height: "20%" }}
+                            style={{ width: "90%", height: "90%" }}
                           />
                         </StChampionName>
                       </StOneList>
@@ -82,9 +82,9 @@ const Summoners = () => {
                           {data.championName}
                           <br />
                           <Stchamp
-                            // src="https://opgg-static.akamaized.net/meta/images/lol/champion/{data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225"
+                            src={`https://opgg-static.akamaized.net/meta/images/lol/champion/${data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`}
                             alt={data.championName}
-                            style={{ width: "20%", height: "20%" }}
+                            style={{ width: "90%", height: "90%" }}
                           />
                         </StChampionName>
                       </StOneList>
@@ -185,6 +185,7 @@ const StOneListBox = styled.div`
   width: 70%;
   height: 20%;
   display: flex;
+  justify-content: space-between;
 
   ${(props) =>
     props.primary &&

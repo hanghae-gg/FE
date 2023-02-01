@@ -55,7 +55,8 @@ const Login = () => {
             </div>
             <StH2>간편 로그인</StH2>
             <div>
-              <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://hh.gg.s3-website.ap-northeast-2.amazonaws.com&response_type=code">
+              {/* <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://hh.gg.s3-website.ap-northeast-2.amazonaws.com&response_type=code"> */}
+              <a href="https://kauth.kakao.com/oauth/authorize?client_id=bb8c316ab6b257776807176ec5c9609c&redirect_uri=http://localhost:3000&response_type=code">
                 <img
                   src="http://papaspick.com/web/upload/2019_web/icon/kakao_login.jpg"
                   style={{ width: 380, height: 60, marginTop: 5 }}
@@ -100,9 +101,7 @@ const Login = () => {
                   <label>로그인 상태 유지하기</label>
                 </div>
               </StLoginCheck>
-              <StLoginButton onClick={onSubmitLoginHandler}>
-                로그인
-              </StLoginButton>
+              <StLoginButton onClick={onSubmitLoginHandler}>로그인</StLoginButton>
               <StSignUp>
                 OP.GG에 처음이세요?
                 <span>
@@ -306,8 +305,7 @@ const StLoginCheck = styled.div`
     display: block;
     width: 13px;
     height: 10px;
-    background: url(https://member.op.gg/icon_check_bl.10732f6d.svg) no-repeat 0
-      0;
+    background: url(https://member.op.gg/icon_check_bl.10732f6d.svg) no-repeat 0 0;
   }
   label {
     font-weight: 400;
