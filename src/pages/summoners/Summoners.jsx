@@ -7,7 +7,7 @@ import axios from "axios";
 const Summoners = () => {
   const { id } = useParams();
   const [datas, setDatas] = useState([]);
-  const [win, setWin] = useState(true);
+  const win = true;
 
   const fetchData = async () => {
     axios
