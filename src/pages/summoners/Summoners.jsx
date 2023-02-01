@@ -86,11 +86,7 @@ const Summoners = () => {
                           <Stchamp
                             src={`https://opgg-static.akamaized.net/meta/images/lol/champion/${data.championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1675051980225`}
                             alt={data.championName}
-<<<<<<< HEAD
-                            style={{ width: "90%", height: "90%" }}
-=======
                             style={{ width: "100px", height: "80px" }}
->>>>>>> abbfeda9c1b8e0552c457282217f890b044e6124
                           />
                         </StChampionName>
                       </StOneList>
