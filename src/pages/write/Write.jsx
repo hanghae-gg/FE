@@ -65,7 +65,8 @@ const Add = () => {
         }
       })
       .catch((error) => {});
-    // navigate("/List");
+    alert("게시글이 추가되었습니다!");
+    navigate("/List");
   };
 
   return (

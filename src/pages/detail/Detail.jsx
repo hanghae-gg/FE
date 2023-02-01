@@ -27,6 +27,8 @@ const Detail = () => {
         Authorization: token,
       },
     });
+    alert("게시글이 수정되었습니다!");
+    window.location.reload();
   };
 
   const onDeletThisList = () => {
@@ -66,10 +68,7 @@ const Detail = () => {
                   <StH3>
                     <h3 className="text-2xl">제목: {mylist.title}</h3>
                   </StH3>
-                  <img
-                    src={mylist.imageUrl}
-                    style={{ width: "550px ", height: "330px" }}
-                  />
+                  <img src={mylist.imageUrl} style={{ width: "550px ", height: "330px" }} />
                   <StText>설명: {mylist.content} </StText>
                 </StBox>
               </div>
@@ -118,10 +117,7 @@ const Detail = () => {
                       }}
                     />
                   </div>
-                  <img
-                    src={mylist.imageUrl}
-                    style={{ width: "550px ", height: "330px" }}
-                  />
+                  <img src={mylist.imageUrl} style={{ width: "550px ", height: "330px" }} />
                   <div>
                     <h2>설명</h2>
                     <Textarea

@@ -26,6 +26,8 @@ const AddCommentForm = () => {
         Authorization: token,
       },
     });
+    alert("댓글이 추가되었습니다!");
+    window.location.reload();
   };
   //
 
