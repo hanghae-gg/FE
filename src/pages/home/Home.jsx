@@ -20,7 +20,7 @@ const MainPage = () => {
     <StBackground>
       <ExHeader></ExHeader>
       <StNotice>
-        <a href="https://talk.op.gg/s/lol/free/5502311">
+        <a href="https://github.com/orgs/hanghae-gg/repositories">
           항해99 OP.GG 5조 클론코딩
         </a>
       </StNotice>
