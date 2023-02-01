@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { axiosInstance } from "../../request/request";
+import axios from "axios";
 
-axiosInstance.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 const initialState = {
   userList: [
     {
@@ -18,9 +18,13 @@ export const __postUser = createAsyncThunk(
   "signup",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post("/users/signup", payload, {
-        withCredentials: true,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_LIST}/users/signup`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       if (400 < error.status < 500) {
@@ -36,7 +40,7 @@ export const __logoutUser = createAsyncThunk(
   "logout",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post("/users/logout", payload, {
+      const { data } = await axios.post("/users/logout", payload, {
         withCredentials: true,
       });
       return thunkAPI.fulfillWithValue(data);
@@ -51,8 +55,8 @@ export const __postLogin = createAsyncThunk(
   "login",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axiosInstance
-        .post("/users/login", payload, {
+      const { data } = await axios
+        .post(`${process.env.REACT_APP_LIST}/users/login`, payload, {
           withCredentials: true,
         })
 
@@ -76,9 +80,13 @@ export const __checkId = createAsyncThunk(
   "account/checkId",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await axiosInstance.post("/users/idcheck", payload, {
-        withCredentials: true,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_LIST}/users/idcheck`,
+        payload,
+        {
+          withCredentials: true,
+        }
+      );
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       if (400 < error.status < 500) {

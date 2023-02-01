@@ -46,7 +46,9 @@ const SignUp = () => {
         : setusernameInput("");
 
     if (name === "email")
-      !regEmail.test(value) ? setEmailInput("이메일 형식으로 입력해주세요.") : setEmailInput("");
+      !regEmail.test(value)
+        ? setEmailInput("이메일 형식으로 입력해주세요.")
+        : setEmailInput("");
 
     if (name === "password")
       !regPassword.test(value)
@@ -57,7 +59,9 @@ const SignUp = () => {
         : setPassInput("");
 
     if (name === "check_password")
-      password !== value ? setcheckpassInput("비밀번호가 불일치합니다") : setcheckpassInput("");
+      password !== value
+        ? setcheckpassInput("비밀번호가 불일치합니다")
+        : setcheckpassInput("");
   };
 
   // 회원가입 POST요청 및 공백 존재 시 경고창 생성
@@ -106,8 +110,8 @@ const SignUp = () => {
             <form>
               <h2 className="signUpTitle">기본정보입력</h2>
               <div className="signUpSub">
-                회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기 전까지 회원가입이 완료가
-                되지 않습니다.
+                회원가입을 위해서 이메일 인증이 진행되며, 인증이 완료되기 전까지
+                회원가입이 완료가 되지 않습니다.
               </div>
               <StPwBox>
                 <input
@@ -160,10 +164,16 @@ const SignUp = () => {
                 {checkpassInput}
               </p>
               <StSignUpButtonBox>
-                <button onClick={onSubmitUserHandler} className="signUpDisabledBtn">
+                <button
+                  onClick={onSubmitUserHandler}
+                  className="signUpDisabledBtn"
+                >
                   회원가입
                 </button>
-                <button className="signUpBtn" onClick={() => navigate("/Login")}>
+                <button
+                  className="signUpBtn"
+                  onClick={() => navigate("/Login")}
+                >
                   취소
                 </button>
               </StSignUpButtonBox>
