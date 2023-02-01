@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import ExHeader from "../../shared/ExHeader";
 import lol from "../img/lol.jpg";
-import Address from "../list/Address";
-import axios from "axios";
-// import SearchUser from "./SearchUser";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -16,7 +13,6 @@ const MainPage = () => {
   useEffect(() => {}, []);
 
   const onPostHandler = (e) => {
-    // axios.post(`http://3.38.107.133/records`, e.nickname);
     navigate(`/Summoners/${e.nickname}`);
   };
 

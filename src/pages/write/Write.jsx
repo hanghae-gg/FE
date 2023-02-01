@@ -6,10 +6,7 @@ import JK from "../../shared/WriteHeader";
 
 const Add = () => {
   const navigate = useNavigate();
-  /*  const [imageUrl, setimageUrl] = useState({
-    imageUrl: "",
-  });
- */
+
   const [lists, setLists] = useState({
     title: "",
     content: "",
@@ -28,6 +25,7 @@ const Add = () => {
   //이미지 미리보기와 파일첨부 기능
   const [imgBase64, setImgBase64] = useState([]); // 파일 base64
   const [imgFile, setImgFile] = useState(null); //파일
+
   //미리보기
   const handleChangeFile = (event) => {
     setImgFile(event.target.files);

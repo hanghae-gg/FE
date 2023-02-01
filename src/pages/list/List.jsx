@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import JK from "../../shared/WriteHeader";
 import Lists from "./Lists";
-import Address from "./Address";
 
 const List = () => {
   const navigate = useNavigate();
@@ -94,7 +93,6 @@ const List = () => {
           </div>
         </div>
         <section className="article-list">
-          {/* <Address /> */}
           <Lists />
         </section>
       </StContent>
