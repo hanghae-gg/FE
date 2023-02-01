@@ -192,6 +192,7 @@ const StOneListBox = styled.div`
   width: 70%;
   height: 20%;
   display: flex;
+  justify-content: space-between;
 
   ${(props) =>
     props.primary &&
