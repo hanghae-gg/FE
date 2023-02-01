@@ -116,7 +116,7 @@ const StNavigationContontainer = styled.div`
   flex: 1;
   display: flex;
 `;
-// margin-right: 120px!important;
+
 const StLogoImg = styled.img`
   margin-left: 10px;
   width: 65px;
@@ -245,7 +245,7 @@ const StSecondWatchA = styled(Link)`
 const HeaderLoginButton = styled.button`
   font-size: 12px;
   margin-top: 7px;
-  margin-right: 10px;
+  margin-right: 30px;
   min-width: 50px;
   vertical-align: top;
   text-align: center;
