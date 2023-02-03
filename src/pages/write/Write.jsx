@@ -44,6 +44,7 @@ const Add = () => {
   };
   //그림파일 폼데이터로 보내기
   const onWriteHandler = async (lists) => {
+    console.log(lists);
     const formData = new FormData();
     const json = JSON.stringify(postRequestDto);
     const blob = new Blob([json], { type: "application/json" });
