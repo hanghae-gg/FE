@@ -13,6 +13,7 @@ const MainPage = () => {
   useEffect(() => {}, []);
 
   const onPostHandler = (e) => {
+    console.log(e);
     navigate(`/Summoners/${e.nickname}`);
   };
 
